@@ -1,7 +1,7 @@
 import { faLocationDot } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useEffect, useState } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import Footer from "./Footer";
 const Purchase = () => {
   const location = useLocation();
@@ -54,7 +54,7 @@ const Purchase = () => {
       });
     console.log(cart, data);
   };
-
+  
   return (
     <>
       <div className="cart register__title">

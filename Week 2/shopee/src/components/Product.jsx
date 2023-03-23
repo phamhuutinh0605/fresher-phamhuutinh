@@ -9,7 +9,7 @@ const Product = ({ product }) => {
     state: { cart },
     dispatch,
   } = CartState();
-
+  let quantity = 0;
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);

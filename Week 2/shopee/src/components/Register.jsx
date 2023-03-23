@@ -53,7 +53,7 @@ const Register = () => {
                       <input type="text" placeholder="Tên của bạn" />
                     </div>
                     <div className="register__phone">
-                      <input type="text" max={10} placeholder="Số điện thoại" />
+                      <input type="text" placeholder="Số điện thoại" />
                     </div>
                     <div className="register__email">
                       <input type="text" placeholder="Email" />
