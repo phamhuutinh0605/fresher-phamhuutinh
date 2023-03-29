@@ -3,15 +3,15 @@ import Footer from "./Footer";
 import Logo from "./Logo";
 import { useAppSelector, useAppDispatch } from '../store/store';
 import { changeQuantity, removeFromCart } from "../store/productSlice";
+import { useEffect } from "react";
 const Cart = () => {
 
   const navigate = useNavigate();
+  const products = useAppSelector((state) => state.product.products)
   const handlePurchase = () => {
     navigate("/purchase", { state: { products } });
   };
-
-  const products = useAppSelector((state) => state.product.products)
-
+  
   const dispatch = useAppDispatch();
   const handleChangeQuantity = (id: String, value: Number) => {
     dispatch(changeQuantity({
@@ -44,7 +44,7 @@ const Cart = () => {
               </div>
               {products.map((product) => (
                 <div className="content__text" key={String(product.id)}>
-                  <span>{product.title}</span>
+                  <span className="text__title">{product.title} Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam praesentium dignissimos repellendus est ullam fugiat excepturi animi quibusdam eum dolore.</span>
                   <span>{String(product.price)}</span>
                   <input
                     min={1}

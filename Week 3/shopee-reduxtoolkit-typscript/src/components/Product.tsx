@@ -5,6 +5,7 @@ import { useAppDispatch } from '../store/store';
 import { addToCart } from "../store/productSlice";
 import { faEye } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import useState from 'react';
 
 const Product = ({ id, title, price, desc, image }: { id: String | undefined, title: String | undefined, price: Number, desc: String | undefined, image: String }) => {
 
@@ -18,16 +19,19 @@ const Product = ({ id, title, price, desc, image }: { id: String | undefined, ti
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
+  const [change,setChange]=React.useState(1);
   const dispatch = useAppDispatch();
   const handleAddToCart = (id: String | undefined, title: String | undefined, price: Number, desc: String | undefined, image: String) => {
     console.log("product", id)
+    setChange(prev=>prev+1)
     dispatch(addToCart({
-      id: String(id), title: String(title), price, desc: String(desc), image, quantity
+      id: String(id), title: String(title), price, desc: String(desc), image, quantity:change
     }))
   }
   const navigate=useNavigate();
   const handleRedirects=()=>{
-    navigate(`/detail/${id}`,{state:{id, title, price, desc, image,quantity }})
+    navigate(`/detail-product`,{state:{id, title, price, desc, image,quantity:change}})
+    console.log(quantity)
   }
   return (
     <div className="product__item">
@@ -43,12 +47,7 @@ const Product = ({ id, title, price, desc, image }: { id: String | undefined, ti
           <button>
             <Link
               to="cart"
-            // onClick={() =>
-            //   dispatch({
-            //     type: "ADD_TO_CART",
-            //     payload: product,
-            //   })
-            // }
+              onClick={() => handleAddToCart(id, title, price, desc, image)}
             >
               Mua Ngay
             </Link>
@@ -75,7 +74,7 @@ const Product = ({ id, title, price, desc, image }: { id: String | undefined, ti
                 <span>{desc}</span>
                 <div className="product__action">
                   <div className="card__action">
-                    <button  className="btn__outline" onClick={handleRedirects}>
+                    <button className="btn__outline" onClick={handleRedirects}>
                     <FontAwesomeIcon icon={faEye} />
                     </button>
                     <button
@@ -88,12 +87,7 @@ const Product = ({ id, title, price, desc, image }: { id: String | undefined, ti
                       <Link
                         to="cart"
                         className="btn__buy"
-                      // onClick={() =>
-                      //   dispatch({
-                      //     type: "ADD_TO_CART",
-                      //     payload: product,
-                      //   })
-                      // }
+                        onClick={() => handleAddToCart(id, title, price, desc, image)}
                       >
                         Mua Ngay
                       </Link>

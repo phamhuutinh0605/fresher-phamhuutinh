@@ -9,7 +9,7 @@ export interface Product {
   quantity: Number
 }
 interface ProductState {
-  products: Product[]
+  products: Product[],
 }
 
 
@@ -22,14 +22,22 @@ export const ProductSlice = createSlice({
   initialState,
   reducers: {
     addToCart: (state, action: PayloadAction<{ id: String, title: String, price: Number, desc: String, image: String, quantity: Number }>) => {
-      state.products = [...state.products, {
-        id: action.payload.id,
-        title: action.payload.title,
-        price: Number(action.payload.price),
-        desc: action.payload.desc,
-        image: action.payload.image,
-        quantity: state.products.find(product => product.id === action.payload.id) ? Number(action.payload.quantity) + 1 : 1
-      }]
+      if (state.products.find(product => product.id === action.payload.id)) {
+        state.products = [
+          ...state.products,
+          { ...action.payload, quantity: action.payload.quantity }
+        ]
+      }
+      else {
+        state.products = [...state.products, {
+          id: action.payload.id,
+          title: action.payload.title,
+          price: Number(action.payload.price),
+          desc: action.payload.desc,
+          image: action.payload.image,
+          quantity: 1
+        }]
+      }
     },
     changeQuantity: (state, action: PayloadAction<{ id: String, quantity: Number }>) => void {
       ...state,
@@ -39,8 +47,8 @@ export const ProductSlice = createSlice({
           : product.quantity
       )
     },
-    removeFromCart: (state, action: PayloadAction<{ id: String|undefined }>) =>  {
-      state.products=state.products.filter((product) =>product.id !== action.payload.id)
+    removeFromCart: (state, action: PayloadAction<{ id: String | undefined }>) => {
+      state.products = state.products.filter((product) => product.id !== action.payload.id)
     }
   },
 });

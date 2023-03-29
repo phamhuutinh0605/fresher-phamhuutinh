@@ -37,7 +37,7 @@ const Purchase = () => {
         date.getDate() + "-" + (date.getMonth() + 1) + "-" + date.getFullYear(),
       id: date,
     };
-    await fetch("https://6183caa491d76c00172d1b4b.mockapi.io/api/order", {
+    await fetch("https://64240b7f4740174043318cf3.mockapi.io/order", {
       method: "POST", // or 'PUT'
       headers: {
         "Content-Type": "application/json",

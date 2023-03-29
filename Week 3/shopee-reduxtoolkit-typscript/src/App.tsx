@@ -1,21 +1,28 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home from './pages/Home';
-import Cart from './components/Cart';
 import "./scss/components/index.scss";
-import Purchase from './components/Purchase';
-import SuccessPage from "components/SuccessPage";
-import DetailProduct from "./components/DetailProduct";
 
+import { Suspense, lazy } from "react";
+
+const Home = lazy(() => import("./pages/Home"))
+const Cart = lazy(() => import("./components/Cart"))
+const DetailProduct = lazy(() => import("./pages/DetailProduct"))
+const Purchase = lazy(() => import("./components/Purchase"))
+const SuccessPage = lazy(() => import("./components/SuccessPage"))
 function App() {
   return (
-    <BrowserRouter>
+    <Suspense>
+      <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/cart" element={<Cart />} />
+          <Route path="/detail-product/cart" element={<Cart />} />
+          <Route path="/detail-product" element={<DetailProduct />} />
           <Route path="/purchase" element={<Purchase />} />
           <Route path="/successpage" element={<SuccessPage />} />
         </Routes>
-    </BrowserRouter>
+      </BrowserRouter>
+    </Suspense>
+
 
   );
 }
