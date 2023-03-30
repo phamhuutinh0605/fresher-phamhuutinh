@@ -45,7 +45,13 @@ const DetailProduct = () => {
   console.log(posts)
 
   const handleFilterPost = () => {
-    return posts.filter((item: any) => item.idProduct === id)
+    // return posts.map((item: any) => {
+    //    if(item.idProduct.includes(id)){
+    //     return item;
+    //    }
+    // })
+
+    return posts.filter((item: any) => item.idProduct[0] === id||item.idProduct[1] === id||item.idProduct[2] === id)
   }
   return (
     <>

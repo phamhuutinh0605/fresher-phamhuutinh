@@ -6,12 +6,12 @@ import Footer from "./Footer";
 import Logo from "./Logo";
 const Purchase = () => {
   const location = useLocation();
-  const [products, setCart] = useState(location.state.products);
+  const [products, setCart] = useState(location.state.products || []);
   // total
   const [total, setTotal] = useState();
   useEffect(() => {
     setTotal(
-      products?.reduce((acc:any, curr:any) => acc + Number(curr.price) * curr.quantity, 0)
+      products?.reduce((acc: any, curr: any) => acc + Number(curr.price) * curr.quantity, 0)
     );
   }, [products]);
 
@@ -21,13 +21,13 @@ const Purchase = () => {
     //post order
     const date = new Date();
     const data = {
-      title: products.map((product:any) => {
+      title: products.map((product: any) => {
         return product.title;
       }),
-      price: products.map((product:any) => {
+      price: products.map((product: any) => {
         return product.price;
       }),
-      amount: products.map((product:any) => {
+      amount: products.map((product: any) => {
         return product.quantity;
       }),
       total: total,
@@ -53,13 +53,16 @@ const Purchase = () => {
       });
     console.log(products, data);
   };
-  
+
+  const handleSubString = (title: String) => {
+    return title.length > 10 ? title.slice(0, 10) + "..." : title
+  }
   return (
     <>
       <div className="cart register__title">
         <div className="shopee__container">
           <div className="cart__title">
-           <Logo/>
+            <Logo />
             <h4 className="">
               <small>|</small> Thanh Toán
             </h4>
@@ -98,12 +101,12 @@ const Purchase = () => {
               <span>Số lượng</span>
               <span>Thành tiền</span>
             </div>
-            {products?.map((product:any) => (
+            {products?.map((product: any) => (
               <div className="content__text" key={String(product.id)}>
-                <span>{product.title}</span>
+                <span>{handleSubString(product.title)}</span>
                 <span>{product.price}</span>
                 <span>{product.quantity}</span>
-                <span>{"" + product.price * product.quantity}</span>
+                <span>{product.price * product.quantity}</span>
               </div>
             ))}
             <hr />

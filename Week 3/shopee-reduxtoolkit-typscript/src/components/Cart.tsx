@@ -3,7 +3,6 @@ import Footer from "./Footer";
 import Logo from "./Logo";
 import { useAppSelector, useAppDispatch } from '../store/store';
 import { changeQuantity, removeFromCart } from "../store/productSlice";
-import { useEffect } from "react";
 const Cart = () => {
 
   const navigate = useNavigate();

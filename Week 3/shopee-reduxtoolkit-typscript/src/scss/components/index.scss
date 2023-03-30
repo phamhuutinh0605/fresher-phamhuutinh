@@ -347,8 +347,29 @@
         }
       }
     }
+   
   }
 }
+.review__rating{
+  padding: 10px 0px;
+  span{
+    margin-right: 10px;
+  }
+  input{
+    width: 30px;
+    height: 30px;
+    padding-left: 15px;
+    border: 1px solid black;
+  }
+}
+.review__input{
+  width: 90%;
+  height: 20px;
+  margin: 10px 0px;
+  padding: 10px;
+  border: 1px solid black;
+}
+
 /* ------------------------FOOTER------------------------------ */
 .footer {
   background-color: #fbfbfb;
@@ -410,28 +431,9 @@
       }
       .content__text {
         padding: 20px;
-        .text__title {
-          margin-left: -20px;
-          display: -webkit-box;
-          -webkit-line-clamp: 1;
-          -webkit-box-orient: vertical;
-          overflow: hidden;
-          text-overflow: ellipsis;
-          width: 100px;
-          height: 20px;
-          transition: 0.3s linear;
-          cursor: pointer;
-          // &:hover{
-          //   display: block;
-          //   width: 200px;
-          //   background-color: white;
-          //   padding: 20px 10px;
-          //   z-index: 10;
-          // }
-        }
         span {
           &:nth-child(2) {
-            margin-left: 0px;
+            margin-left: 30px;
           }
           &:nth-child(3) {
             margin-left: 30px;
@@ -489,6 +491,18 @@
         color: blue;
       }
     }
+  }
+}
+.content__text {
+  span {
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 100px;
+    height: 20px;
+    transition: 0.3s linear;
+    cursor: pointer;
   }
 }
 .purchase__payment {
@@ -607,8 +621,47 @@
     }
   }
 }
+// ORDER
+.order {
+  .order__bg {
+    .order__content {
+      .review__order {
+        .order__react {
+          display: flex;
+          justify-content: end;
+        }
+      }
+    }
+  }
+}
 // =========================GENERATE============================
 .shopee__container {
   max-width: 1024px;
   margin: auto;
+}
+
+.btn__secondary {
+  margin-left: 5px;
+  padding: 10px 15px;
+  background-color: white;
+  color: #f7472e;
+  border: 1px solid #f7472e;
+  cursor: pointer;
+  transition: 0.4s linear;
+  &:hover {
+    background-color: #f7472e;
+    color: white;
+  }
+}
+.btn__primary {
+  margin-left: 5px;
+  background-color: #f7472e;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s eas-in;
+  &:hover {
+    background-color: #d32e18;
+  }
 }

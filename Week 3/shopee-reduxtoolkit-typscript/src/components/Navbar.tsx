@@ -10,12 +10,6 @@ import { useAppSelector } from "../store/store";
 
 const Navbar = () => {
 
-  // const handleFilterByName = (e) => {
-  //   productDispatch({
-  //     type: "FILTER_BY_NAME",
-  //     payload: e.target.value,
-  //   });
-  // };
   const products=useAppSelector((state)=>state.product.products)
 
   return (
