@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import "./scss/components/index.scss";
+import "./scss/index.scss";
 
 import { Suspense, lazy } from "react";
 

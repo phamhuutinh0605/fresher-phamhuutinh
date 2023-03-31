@@ -23,19 +23,17 @@ const Login = () => {
   const [username, setUserName] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
-  const handleLogin = () => {
-    users.map((user: any) => {
+  const handleLogin = (e: any) => {
+    e.preventDefault();
+    users.map((user:any) => {
       if (user.username === username && user.password === password) {
-        navigate("/order",{state:{user}})
+        navigate("/order", { state: { user } })
+        console.log("order-user", user)
       }
       else if (user.username === username && user.password !== password) {
         alert("Mật khẩu của bạn không đúng !")
         return
       }
-      // else if (user.username !== username) {
-      //   alert("Tài khoản không tồn tại");
-      //   return
-      // }
     })
   }
   return (
@@ -76,7 +74,7 @@ const Login = () => {
                     <div className="register__password">
                       <input type="password" onChange={(e) => handlePassword(e.target.value)} placeholder="Mật khẩu" />
                     </div>
-                    <button className="search__button register__btn" onClick={handleLogin}>
+                    <button className="search__button register__btn" onClick={(e) => handleLogin(e)}>
                       ĐĂNG NHẬP
                     </button>
                   </form>

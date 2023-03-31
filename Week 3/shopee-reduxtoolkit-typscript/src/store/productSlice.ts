@@ -40,7 +40,7 @@ export const ProductSlice = createSlice({
       ...state,
       products: state.products.filter((product) =>
         product.id === action.payload.id
-          ? (product.quantity = action.payload.quantity)
+          ? (product.quantity = Number(action.payload.quantity) + Number(product.quantity) - 1)
           : product.quantity
       )
     },
@@ -53,5 +53,4 @@ export const ProductSlice = createSlice({
 export default ProductSlice.reducer;
 export const { addToCart, changeQuantity, removeFromCart } = ProductSlice.actions;
 
-// export const selectProductList = (state: RootState) => state.product.productList;
 

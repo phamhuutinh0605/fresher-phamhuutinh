@@ -7,14 +7,20 @@ import { useEffect } from 'react';
 const Order = () => {
   const location = useLocation();
   const [orders, setOrders] = useState([]);
-  const [user, setUser] = useState(location.state.user)
+  const [user, setUser] = useState<any>({})
+  useEffect(() => {
+    console.log("location",location)
+    if (location?.state?.user) {
+      setUser(location.state.user)
+    }
+  },[location?.state?.user])
   useEffect(() => {
     fetch("https://64240b7f4740174043318cf3.mockapi.io/order")
       .then((response) => response.json())
       .then((data) => setOrders(data));
   }, [])
 
-  console.log(user)
+  console.log(location);
   const handleFilterOrder = () => {
     return orders.filter((order: any) => order.idUser === user?.id)
   }

@@ -82,9 +82,8 @@ const DetailProduct = () => {
                     value={quantity}
                     onChange={(e) => handleChangeQuantity(String(id), Number(e.target.value))}
                   />
-                  <span> 68 sản phẩm có sẵn</span>
+                  <span> 68 sản phẩm có sẵn</span>    
                 </div>
-
                 <div className="detail__btn">
                   <button
                     className="btn__outline"
