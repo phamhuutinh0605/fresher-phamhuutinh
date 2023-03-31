@@ -31,13 +31,8 @@ const Carousel = () => {
     },
   ];
   const [slideNumber, setSlideNumber] = useState(0);
-  // const [open, setOpen] = useState(false);
-  // const handleOpen = (i) => {
-  //   setSlideNumber(i);
-  //   setOpen(true);
-  // };
 
-  const handleMove = (direction) => {
+  const handleMove = (direction:String) => {
     let newSlideNumber;
 
     if (direction === "l") {
@@ -57,7 +52,7 @@ const Carousel = () => {
               <FontAwesomeIcon
                 icon={faCircleArrowLeft}
                 className="arrow"
-                onClick={() => handleMove("l")}
+              onClick={() => handleMove("l")}
               />
               <div className="sliderWrapper">
                 <img
@@ -69,7 +64,7 @@ const Carousel = () => {
               <FontAwesomeIcon
                 icon={faCircleArrowRight}
                 className="arrow"
-                onClick={() => handleMove("r")}
+              onClick={() => handleMove("r")}
               />
             </div>
           </div>

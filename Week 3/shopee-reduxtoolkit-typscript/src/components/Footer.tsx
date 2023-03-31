@@ -6,243 +6,161 @@ const Footer = () => {
       <div className="shopee__container">
         <div className="footer__wrapper">
           <div className="footer__services">
-            <h6 className="JMCbqu">CHĂM SÓC KHÁCH HÀNG</h6>
+            <h6 className="footer__title">CHĂM SÓC KHÁCH HÀNG</h6>
             <ul className="footer__menu">
               <li className="menu__item">
                 <a
-                  href="https://help.shopee.vn/portal"
                   className="FA0WjS"
-                  title
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <span className="xTjlXx">Trung Tâm Trợ Giúp</span>
+                  <span className="footer__title">Trung Tâm Trợ Giúp</span>
                 </a>
               </li>
               <li className="menu__item">
                 <a
-                  href="https://shopee.vn/blog/"
                   className="FA0WjS"
-                  title
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <span className="xTjlXx">Shopee Blog</span>
+                  <span className="footer__title">Shopee Blog</span>
                 </a>
               </li>
               <li className="menu__item">
                 <a
-                  href="https://help.shopee.vn/portal/article/79090-[Th%C3%A0nh-vi%C3%AAn-m%E1%BB%9Bi]-Shopee-Mall-l%C3%A0-g%C3%AC?previousPage=search%20recommendation%20bar"
                   className="FA0WjS"
-                  title
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <span className="xTjlXx">Shopee Mall</span>
+                  <span className="footer__title">Shopee Mall</span>
                 </a>
               </li>
               <li className="menu__item">
                 <a
-                  href="https://help.shopee.vn/portal/article/79180-[Th%c3%a0nh-vi%c3%aan-m%e1%bb%9bi]-L%c3%a0m-sao-%c4%91%e1%bb%83-mua-h%c3%a0ng-%2F-%c4%91%e1%ba%b7t-h%c3%a0ng-tr%c3%aan-%e1%bb%a9ng-d%e1%bb%a5ng-Shopee%3F"
                   className="FA0WjS"
-                  title
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <span className="xTjlXx">Hướng Dẫn Mua Hàng</span>
+                  <span className="footer__title">Hướng Dẫn Mua Hàng</span>
                 </a>
               </li>
               <li className="menu__item">
                 <a
-                  href="https://banhang.shopee.vn/edu/article/13243/ban-hang-online-bat-dau-tu-dau"
                   className="FA0WjS"
-                  title
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <span className="xTjlXx">Hướng Dẫn Bán Hàng</span>
+                  <span className="footer__title">Hướng Dẫn Bán Hàng</span>
                 </a>
               </li>
               <li className="menu__item">
                 <a
-                  href="https://help.shopee.vn/portal/category/59-Thanh-To%C3%A1n/708-V%C3%AD-ShopeePay?page=1"
                   className="FA0WjS"
-                  title
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <span className="xTjlXx">Thanh Toán</span>
+                  <span className="footer__title">Thanh Toán</span>
                 </a>
               </li>
               <li className="menu__item">
                 <a
-                  href="https://help.shopee.vn/portal/article/79144-[Shopee-Xu]-C%c3%a1c-c%c3%a2u-h%e1%bb%8fi-th%c6%b0%e1%bb%9dng-g%e1%ba%b7p"
                   className="FA0WjS"
-                  title
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <span className="xTjlXx">Shopee Xu</span>
+                  <span className="footer__title">Shopee Xu</span>
                 </a>
               </li>
               <li className="menu__item">
                 <a
-                  href="https://help.shopee.vn/portal/category/60-%C4%90%C6%A1n-H%C3%A0ng-V%E1%BA%ADn-Chuy%E1%BB%83n/703-%C4%90%C6%A1n-h%C3%A0ng?page=1"
                   className="FA0WjS"
-                  title
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <span className="xTjlXx">Vận Chuyển</span>
+                  <span className="footer__title">Vận Chuyển</span>
                 </a>
               </li>
               <li className="menu__item">
                 <a
-                  href="https://help.shopee.vn/portal/article/79258-Tr%e1%ba%a3-h%c3%a0ng%2FHo%c3%a0n-ti%e1%bb%81n]-C%e1%ba%a9m-nang-Tr%e1%ba%a3-h%c3%a0ng-ho%c3%a0n-ti%e1%bb%81n"
                   className="FA0WjS"
-                  title
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <span className="xTjlXx">Trả Hàng &amp; Hoàn Tiền</span>
+                  <span className="footer__title">Trả Hàng &amp; Hoàn Tiền</span>
                 </a>
               </li>
               <li className="menu__item">
                 <a
-                  href="https://help.shopee.vn/portal/article/79191-%5BD%E1%BB%8Bch-v%E1%BB%A5%5D-L%C3%A0m-sao-%C4%91%E1%BB%83-li%C3%AAn-h%E1%BB%87-Ch%C4%83m-s%C3%B3c-Kh%C3%A1ch-h%C3%A0ng"
                   className="FA0WjS"
-                  title
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <span className="xTjlXx">Chăm Sóc Khách Hàng</span>
+                  <span className="footer__title">Chăm Sóc Khách Hàng</span>
                 </a>
               </li>
               <li className="menu__item">
                 <a
-                  href="https://help.shopee.vn/portal/article/79046-[Quy-%c4%91%e1%bb%8bnh]-Ch%c3%adnh-s%c3%a1ch-b%e1%ba%a3o-h%c3%a0nh-cho-s%e1%ba%a3n-ph%e1%ba%a9m-mua-t%e1%ba%a1i-Shopee"
                   className="FA0WjS"
-                  title
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <span className="xTjlXx">Chính Sách Bảo Hành</span>
-                </a>
-              </li>
-            </ul>
-          </div>
-          <div class="footer__services">
-            <h6 class="JMCbqu">VỀ SHOPEE</h6>
-            <ul class="footer__menu">
-              <li class="menu__item">
-                <a
-                  href="https://careers.shopee.vn/about"
-                  class="FA0WjS"
-                  title=""
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <span class="xTjlXx">Giới Thiệu Về Shopee Việt Nam</span>
-                </a>
-              </li>
-              <li class="menu__item">
-                <a
-                  href="https://careers.shopee.vn/jobs"
-                  class="FA0WjS"
-                  title=""
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <span class="xTjlXx">Tuyển Dụng</span>
-                </a>
-              </li>
-              <li class="menu__item">
-                <a
-                  href="https://help.shopee.vn/portal/article/77242"
-                  class="FA0WjS"
-                  title=""
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <span class="xTjlXx">Điều Khoản Shopee</span>
-                </a>
-              </li>
-              <li class="menu__item">
-                <a
-                  href="https://help.shopee.vn/portal/article/77244"
-                  class="FA0WjS"
-                  title=""
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <span class="xTjlXx">Chính Sách Bảo Mật</span>
-                </a>
-              </li>
-              <li class="menu__item">
-                <a
-                  href="https://shopee.vn/mall/"
-                  class="FA0WjS"
-                  title=""
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <span class="xTjlXx">Chính Hãng</span>
-                </a>
-              </li>
-              <li class="menu__item">
-                <a
-                  href="https://banhang.shopee.vn/"
-                  class="FA0WjS"
-                  title=""
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <span class="xTjlXx">Kênh Người Bán</span>
-                </a>
-              </li>
-              <li class="menu__item">
-                <a
-                  href="https://shopee.vn/flash_sale/"
-                  class="FA0WjS"
-                  title=""
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <span class="xTjlXx">Flash Sales</span>
-                </a>
-              </li>
-              <li class="menu__item">
-                <a
-                  href="https://shopee.vn/affiliate/"
-                  class="FA0WjS"
-                  title=""
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <span class="xTjlXx">
-                    Chương Trình Tiếp Thị Liên Kết Shopee
-                  </span>
-                </a>
-              </li>
-              <li class="menu__item">
-                <a
-                  href="mailto:media.vn%40shopee.com"
-                  class="FA0WjS"
-                  title=""
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <span class="xTjlXx">Liên Hệ Với Truyền Thông</span>
+                  <span className="footer__title">Chính Sách Bảo Hành</span>
                 </a>
               </li>
             </ul>
           </div>
           <div className="footer__services">
-            <h6 className="JMCbqu">THANH TOÁN</h6>
+            <h6 className="footer__title">VỀ SHOPEE</h6>
+            <ul className="footer__menu">
+              <li className="menu__item">
+                <a href="">
+                  <span>Chính sách</span>
+                </a>
+              </li>
+              <li className="menu__item">
+                <a href="">
+                  <span>Bảo mật</span>
+                </a>
+              </li>
+              <li className="menu__item">
+                <a href="">
+                  <span>Quy định</span>
+                </a>
+              </li>
+              <li className="menu__item">
+                <a href="">
+                  <span>Tổng quan</span>
+                </a>
+              </li>
+              <li className="menu__item">
+                <a href="">
+                  <span>Hệ thống</span>
+                </a>
+              </li>
+              <li className="menu__item">
+                <a href=""><span>Chính sách bán hàng</span></a>
+              </li>
+              <li className="menu__item">
+                <a href=""> <span>Flash sale</span></a>
+              </li>
+              <li className="menu__item">
+                <a className="FA0WjS" target="_blank" rel="noopener noreferrer">
+                  <span>
+                    Chương Trình Tiếp Thị Liên Kết Shopee
+                  </span>
+                </a>
+              </li>
+              <li className="menu__item">
+                <a href="mailto:media.vn%40shopee.com" className="FA0WjS" target="_blank" rel="noopener noreferrer">
+                </a>
+              </li>
+            </ul>
+          </div>
+          <div className="footer__services">
+            <h6 className="footer__title">THANH TOÁN</h6>
             <ul className="footer__menu">
               <li className="menu__item">
                 <a
-                  target="_blank"
                   rel="noopener noreferrer"
                   className="item__link"
                 >
@@ -254,7 +172,6 @@ const Footer = () => {
               </li>
               <li className="menu__item">
                 <a
-                  target="_blank"
                   rel="noopener noreferrer"
                   className="item__link"
                 >
@@ -266,7 +183,6 @@ const Footer = () => {
               </li>
               <li className="menu__item">
                 <a
-                  target="_blank"
                   rel="noopener noreferrer"
                   className="item__link"
                 >
@@ -278,7 +194,6 @@ const Footer = () => {
               </li>
               <li className="menu__item">
                 <a
-                  target="_blank"
                   rel="noopener noreferrer"
                   className="item__link"
                 >
@@ -290,7 +205,6 @@ const Footer = () => {
               </li>
               <li className="menu__item">
                 <a
-                  target="_blank"
                   rel="noopener noreferrer"
                   className="item__link"
                 >
@@ -302,7 +216,6 @@ const Footer = () => {
               </li>
               <li className="menu__item">
                 <a
-                  target="_blank"
                   rel="noopener noreferrer"
                   className="item__link"
                 >
@@ -314,7 +227,6 @@ const Footer = () => {
               </li>
               <li className="menu__item">
                 <a
-                  target="_blank"
                   rel="noopener noreferrer"
                   className="item__link"
                 >
@@ -326,7 +238,6 @@ const Footer = () => {
               </li>
               <li className="menu__item">
                 <a
-                  target="_blank"
                   rel="noopener noreferrer"
                   className="item__link"
                 >
@@ -339,11 +250,10 @@ const Footer = () => {
             </ul>
           </div>
           <div className="footer__services">
-            <h6 className="JMCbqu wTATIi">ĐƠN VỊ VẬN CHUYỂN</h6>
+            <h6 className="footer__title wTATIi">ĐƠN VỊ VẬN CHUYỂN</h6>
             <ul className="footer__menu">
               <li className="menu__item">
                 <a
-                  target="_blank"
                   rel="noopener noreferrer"
                   className="item__link"
                 >
@@ -355,7 +265,6 @@ const Footer = () => {
               </li>
               <li className="menu__item">
                 <a
-                  target="_blank"
                   rel="noopener noreferrer"
                   className="item__link"
                 >
@@ -367,7 +276,6 @@ const Footer = () => {
               </li>
               <li className="menu__item">
                 <a
-                  target="_blank"
                   rel="noopener noreferrer"
                   className="item__link"
                 >
@@ -379,7 +287,6 @@ const Footer = () => {
               </li>
               <li className="menu__item">
                 <a
-                  target="_blank"
                   rel="noopener noreferrer"
                   className="item__link"
                 >
@@ -391,7 +298,6 @@ const Footer = () => {
               </li>
               <li className="menu__item">
                 <a
-                  target="_blank"
                   rel="noopener noreferrer"
                   className="item__link"
                 >
@@ -403,7 +309,6 @@ const Footer = () => {
               </li>
               <li className="menu__item">
                 <a
-                  target="_blank"
                   rel="noopener noreferrer"
                   className="item__link"
                 >
@@ -415,7 +320,6 @@ const Footer = () => {
               </li>
               <li className="menu__item">
                 <a
-                  target="_blank"
                   rel="noopener noreferrer"
                   className="item__link"
                 >
@@ -427,7 +331,6 @@ const Footer = () => {
               </li>
               <li className="menu__item">
                 <a
-                  target="_blank"
                   rel="noopener noreferrer"
                   className="item__link"
                 >
@@ -439,7 +342,6 @@ const Footer = () => {
               </li>
               <li className="menu__item">
                 <a
-                  target="_blank"
                   rel="noopener noreferrer"
                   className="item__link"
                 >
@@ -451,7 +353,6 @@ const Footer = () => {
               </li>
               <li className="menu__item">
                 <a
-                  target="_blank"
                   rel="noopener noreferrer"
                   className="item__link"
                 >
@@ -464,11 +365,10 @@ const Footer = () => {
             </ul>
           </div>
           <div className="footer__services">
-            <h6 className="JMCbqu">TẢI ỨNG DỤNG SHOPEE NGAY THÔI</h6>
+            <h6 className="footer__title">TẢI ỨNG DỤNG SHOPEE NGAY THÔI</h6>
             <div className="footer__menu">
               <div className="item__qr">
                 <a
-                  href="https://shopee.vn/web"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="item__left"
@@ -481,7 +381,6 @@ const Footer = () => {
                 </a>
                 <div className="item__right">
                   <a
-                    href="https://shopee.vn/web"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="W4jGm6"
@@ -492,7 +391,6 @@ const Footer = () => {
                     />
                   </a>
                   <a
-                    href="https://shopee.vn/web"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="W4jGm6"
@@ -503,7 +401,6 @@ const Footer = () => {
                     />
                   </a>
                   <a
-                    href="https://shopee.vn/web"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="W4jGm6"
