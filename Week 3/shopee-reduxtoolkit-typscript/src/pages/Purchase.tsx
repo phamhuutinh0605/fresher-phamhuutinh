@@ -2,8 +2,8 @@ import { faLocationDot } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React, { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import Footer from "./Footer";
-import Logo from "./Logo";
+import Footer from "../components/Footer";
+import Logo from "../components/Logo";
 const Purchase = () => {
   const location = useLocation();
   const [products, setCart] = useState(location.state.products || []);

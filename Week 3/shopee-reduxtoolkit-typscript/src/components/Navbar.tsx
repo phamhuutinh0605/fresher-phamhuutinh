@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCartShopping,
@@ -6,12 +6,18 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import Logo from "./Logo";
-import { useAppSelector } from "../store/store";
+import { useAppSelector, useAppDispatch } from '../store/store';
+import { filterProduct } from "store/productSlice";
 
 const Navbar = () => {
+  const products = useAppSelector((state) => state.product.products)
 
-  const products=useAppSelector((state)=>state.product.products)
-
+  // const inputRef = useRef<any>();
+  const dispatch = useAppDispatch();
+  const handleFilterByName = (e: any) => {
+    e.preventDefault()
+    dispatch(filterProduct(e.target.value))
+  }
   return (
     <div className="navbar">
       <div className="navbar__logo">
@@ -23,7 +29,8 @@ const Navbar = () => {
         <input
           type="text"
           className="search__input"
-          // onChange={(e) => handleFilterByName(e)}
+          // ref={inputRef}
+          onChange={(e) => handleFilterByName(e)}
         />
         <button className="search__button">
           <FontAwesomeIcon icon={faMagnifyingGlass} />

@@ -5,13 +5,14 @@ import { Suspense, lazy } from "react";
 
 
 const Home = lazy(() => import("./pages/Home"))
-const Cart = lazy(() => import("./components/Cart"))
+const Cart = lazy(() => import("./pages/Cart"))
 const DetailProduct = lazy(() => import("./pages/DetailProduct"))
-const Purchase = lazy(() => import("./components/Purchase"))
-const SuccessPage = lazy(() => import("./components/SuccessPage"))
+const Purchase = lazy(() => import("./pages/Purchase"))
+const SuccessPage = lazy(() => import("./pages/SuccessPage"))
 const Login = lazy(() => import("./pages/Login"))
 const Register = lazy(() => import("./pages/Register"))
 const Order = lazy(() => import("./pages/Order"))
+
 function App() {
   return (
     <Suspense>
@@ -25,7 +26,7 @@ function App() {
           <Route path="/purchase" element={<Purchase />} />
           <Route path="/successpage" element={<SuccessPage />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/order" element={<Order />} />
+          <Route path="/login/order" element={<Order />} />
           <Route path="/register" element={<Register />} />
         </Routes>
       </BrowserRouter>

@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
-import Footer from "./Footer";
-import Logo from "./Logo";
+import Footer from "../components/Footer";
+import Logo from "../components/Logo";
 import { useAppSelector, useAppDispatch } from '../store/store';
 import { changeQuantity, removeFromCart } from "../store/productSlice";
 const Cart = () => {

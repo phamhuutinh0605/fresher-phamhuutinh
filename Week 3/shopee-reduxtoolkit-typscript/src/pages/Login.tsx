@@ -27,7 +27,7 @@ const Login = () => {
     e.preventDefault();
     users.map((user:any) => {
       if (user.username === username && user.password === password) {
-        navigate("/order", { state: { user } })
+        navigate("/login/order", { state: { user } })
         console.log("order-user", user)
       }
       else if (user.username === username && user.password !== password) {

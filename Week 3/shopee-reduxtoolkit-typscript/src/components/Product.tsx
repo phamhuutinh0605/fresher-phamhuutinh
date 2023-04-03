@@ -5,15 +5,10 @@ import { useAppDispatch } from '../store/store';
 import { addToCart } from "../store/productSlice";
 import { faEye } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import useState from 'react';
+
 
 const Product = ({ id, title, price, desc, image }: { id: String | undefined, title: String | undefined, price: Number, desc: String | undefined, image: String }) => {
-
-  // const history = useHistory();
-  // const redirect = (id: string) => {
-  //   history.push(`/update-book/${id}`);
-  // };
-
+  
   let quantity = 0;
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
