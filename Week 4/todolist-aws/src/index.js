@@ -6,14 +6,7 @@ import reportWebVitals from './reportWebVitals';
 
 import { DataStore } from '@aws-amplify/datastore';
 import { Users } from './models';
-// await DataStore.save(
-//   new Users({
-//   "username": "Lorem ipsum dolor sit amet",
-//   "email": "Lorem ipsum dolor sit amet",
-//   "password": "Lorem ipsum dolor sit amet",
-//   "Tasks": []
-// })
-// );
+
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

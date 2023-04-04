@@ -2,7 +2,6 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./scss/index.scss";
 
 import { Suspense, lazy } from "react";
-import Admin from "pages/Admin";
 
 
 const Home = lazy(() => import("./pages/Home"))
@@ -13,6 +12,8 @@ const SuccessPage = lazy(() => import("./pages/SuccessPage"))
 const Login = lazy(() => import("./pages/Login"))
 const Register = lazy(() => import("./pages/Register"))
 const Order = lazy(() => import("./pages/Order"))
+
+const Admin = lazy(() => import("./pages/Admin"))
 
 function App() {
   return (

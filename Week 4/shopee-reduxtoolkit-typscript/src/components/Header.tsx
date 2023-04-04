@@ -16,7 +16,7 @@ const Header = () => {
             <Link to="/login" className="header__signin">Đăng nhập</Link>
           </div>
         </div>
-        <Navbar />
+        <Navbar/>
       </div>
     </div>
   );

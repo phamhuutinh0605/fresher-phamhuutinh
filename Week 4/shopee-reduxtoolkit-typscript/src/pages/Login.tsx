@@ -25,12 +25,12 @@ const Login = () => {
   const navigate = useNavigate();
   const handleLogin = (e: any) => {
     e.preventDefault();
-    users.map((user:any) => {
+    users.map((user: any) => {
       if (user.username === username && user.password === password) {
-        if(user.AdminType){
-          navigate("/login/admin", { state: { user } })
-          console.log("order-user", user)
-        }else{
+        if (user.AdminType) {
+          navigate("/login/admin", { state: { user, users } })
+          console.log("order-user", users)
+        } else {
           navigate("/login/user/order", { state: { user } })
         }
       }
