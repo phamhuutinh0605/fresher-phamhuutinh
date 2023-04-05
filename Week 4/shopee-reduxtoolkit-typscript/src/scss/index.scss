@@ -1,0 +1,20 @@
+@import 'components/Header';
+@import 'components/Navbar';
+@import 'components/Logo';
+@import 'components/Carousel';
+@import 'components/ProductList';
+@import 'components/Product';
+@import 'components/Cart';
+@import 'components/Purchase';
+@import 'components/Order';
+@import 'components/Register';
+@import 'components/Login';
+@import 'components/SuccessPage';
+@import 'components/DetailProduct';
+@import 'components/Footer';
+@import 'components/Generate';
+
+// ------------------ADMIN------------------------------
+@import 'components/Admin.scss';
+@import 'components/SideBar.scss';
+@import 'components/DataTable.scss';
