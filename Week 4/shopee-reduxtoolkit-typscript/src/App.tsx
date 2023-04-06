@@ -15,25 +15,34 @@ const Order = lazy(() => import("./pages/Order"))
 
 const Admin = lazy(() => import("./pages/Admin"))
 
+
+const Test = lazy(() => import("./components/TestComponent"))
+
 function App() {
   return (
-    <Suspense>
-      <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/cart" element={<Cart />} />
-          <Route path="/detail-product/cart" element={<Cart />} />
-          <Route path="/login/order/cart" element={<Cart />} />
-          <Route path="/detail-product" element={<DetailProduct />} />
-          <Route path="/purchase" element={<Purchase />} />
-          <Route path="/successpage" element={<SuccessPage />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/login/user/order" element={<Order />} />
-          <Route path="/login/admin" element={<Admin />} />
-          <Route path="/register" element={<Register />} />
-        </Routes>
-      </BrowserRouter>
-    </Suspense>
+    <>
+      {/* <a href="" data-testid="mylink">Đăng kí</a> */}
+      <Suspense>
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/cart" element={<Cart />} />
+            <Route path="/detail-product/cart" element={<Cart />} />
+            <Route path="/login/order/cart" element={<Cart />} />
+            <Route path="/detail-product" element={<DetailProduct />} />
+            <Route path="/purchase" element={<Purchase />} />
+            <Route path="/successpage" element={<SuccessPage />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/login/user/order" element={<Order />} />
+            <Route path="/login/admin" element={<Admin />} />
+            <Route path="/register" element={<Register />} />
+
+            {/* testing */}
+            <Route path="/test" element={<Test />} />
+          </Routes>
+        </BrowserRouter>
+      </Suspense>
+    </>
 
 
   );

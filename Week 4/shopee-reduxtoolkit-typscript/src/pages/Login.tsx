@@ -73,7 +73,7 @@ const Login = () => {
                   <form action="" className="register__form">
                     <h4>Đăng nhập</h4>
                     <div className="register__email">
-                      <input type="text" onChange={(e) => handleUserName(e.target.value)} placeholder="Email" />
+                      <input type="text" onChange={(e) => handleUserName(e.target.value)} placeholder="Tài khoản" />
                     </div>
                     <div className="register__password">
                       <input type="password" onChange={(e) => handlePassword(e.target.value)} placeholder="Mật khẩu" />
