@@ -1,28 +1,77 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import type {  Meta, StoryObj } from '@storybook/react';
 import { Button, Props } from "./Button";
-import { action } from "@storybook/addon-actions"
+
 const meta: Meta<typeof Button> = {
   title: "Atoms/Button",
   component: Button,
-  argTypes: {
-    children: {
-      defaultValue: 'Default Text'
-    }
-  }
 }
 export default meta;
 type Story = StoryObj<typeof Button>;
-export const Primary: Story = {
+export const Buy: Story = {
   args: {
-    variant: 'primary',
-    children: 'Im primary',
+    label: 'Mua Ngay',
+    backgroundColor:"#f7472e",
+    color:"white",
+    border:"none",
+    padding:"10px 15px",
+    fontSize:"12px"
+  }
+}
+export const AddCart: Story = {
+  args: {
+    label: 'Thêm Vào Giỏ',
+    color:"#f7472e",
+    backgroundColor:"white",
+    border:"1px solid #f7472e",
+    padding:"10px 15px",
+    fontSize:"12px"
+  }
+}
+export const Detail: Story = {
+  args: {
+    label: 'Chi Tiết',
+    color:"#f7472e",
+    backgroundColor:"white",
+    border:"1px solid #f7472e",
+    padding:"10px 15px",
+    fontSize:"12px"
   }
 }
 
-export const Secondary: Story = {
+export const Login: Story = {
   args: {
-    variant: 'secondary',
-    children: 'Im secondary',
+    label: 'ĐĂNG NHẬP',
+    backgroundColor:"#f7472e",
+    color:"white",
+    border:"none",
+    padding:"8px 10px",
+    fontSize:"12px",
+    cursor: "pointer",
+    width:"100%"
   }
 }
 
+export const Register: Story = {
+  args: {
+    label: 'ĐĂNG KÝ',
+    backgroundColor:"#f7472e",
+    color:"white",
+    border:"none",
+    padding:"8px 10px",
+    fontSize:"12px",
+    cursor: "pointer",
+    width:"100%"
+  }
+}
+// export default{
+//   title:"Component/Button",
+//   component:Button
+// } as Meta<typeof Button>
+
+// const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />;
+
+// export const Submit = Template.bind({});
+// Submit.args = {
+//   label: 'Button',
+//   variant:"primary"
+// };
