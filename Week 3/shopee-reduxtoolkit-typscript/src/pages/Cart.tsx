@@ -1,27 +1,51 @@
 import { useNavigate } from "react-router-dom";
 import Footer from "../components/Footer";
 import Logo from "../components/Logo";
-import { useAppSelector, useAppDispatch } from '../store/store';
+import { useAppSelector, useAppDispatch } from "../store/store";
 import { changeQuantity, removeFromCart } from "../store/productSlice";
-const Cart = () => {
+import {ChangeEvent, ChangeEventHandler, useRef, useState } from "react";
 
+// type IProductProps = {
+//   id: String,
+//   title: String,
+//   price: Number,
+//   desc: String,
+//   image: String
+// }
+
+const Cart = () => {
   const navigate = useNavigate();
-  const products = useAppSelector((state) => state.product.products)
+  const products = useAppSelector((state) => state.product?.products);
   const handlePurchase = () => {
     navigate("/purchase", { state: { products } });
   };
-  
+
+  const quantityRef = useRef<HTMLInputElement>(null);
+  const idRef = useRef<HTMLInputElement>(null);
   const dispatch = useAppDispatch();
-  const handleChangeQuantity = (id: String, value: Number) => {
-    dispatch(changeQuantity({
-      id: String(id), quantity: value
-    }))
-  }
-  const handleRemoveCart = (id: String|undefined) => {
-    dispatch(removeFromCart({
-      id: id
-    }))
-  }
+
+  //change quantity --BUG---------------------
+  const [quantity,setQuantity]=useState<number>();
+  const handleChangeQuantity= (event: ChangeEvent<HTMLInputElement>) =>{
+    event.preventDefault();
+    const quantity = Number(quantityRef.current?.value || 0);
+    setQuantity(Number(quantityRef.current?.value));
+    const id = Number(idRef.current?.value);
+    dispatch(
+      changeQuantity({
+        id: String(id),
+        quantity: quantity,
+      })
+    );
+  };
+  //--------------------------------------------
+  const handleRemoveCart = (id: String | undefined) => {
+    dispatch(
+      removeFromCart({
+        id: id,
+      })
+    );
+  };
   return (
     <>
       <div className="cart register__title">
@@ -42,16 +66,24 @@ const Cart = () => {
                 <span>Thao tác</span>
               </div>
               {products.map((product) => (
-                <div className="content__text" key={String(product.id)}>
-                  <span className="text__title">{product.title} Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam praesentium dignissimos repellendus est ullam fugiat excepturi animi quibusdam eum dolore.</span>
+                <div className="content__text" key={String(product.id)} ref={idRef}>
+                  <span className="text__title">
+                    {product.title} Lorem ipsum dolor sit amet, consectetur
+                    adipisicing elit. Quam praesentium dignissimos repellendus
+                    est ullam fugiat excepturi animi quibusdam eum dolore.
+                  </span>
                   <span>{String(product.price)}</span>
                   <input
                     min={1}
                     type="number"
-                    value={Number(product.quantity)}
-                    onChange={(e) => handleChangeQuantity(String(product.id), Number(e.target.value))}
+                    ref={quantityRef}
+                    // value={quantityRef.current?}
+                    value={quantity}
+                    onChange={handleChangeQuantity}
                   />
-                  <span>{Number(product.quantity) * Number(product.price)}</span>
+                  <span>
+                    {Number(product.quantity) * Number(product.price)}
+                  </span>
                   <button
                     className="btn_delete"
                     onClick={() => handleRemoveCart(String(product.id))}
@@ -60,9 +92,7 @@ const Cart = () => {
                   </button>
                 </div>
               ))}
-              <button className="content__btn"
-                onClick={handlePurchase}
-              >
+              <button className="content__btn" onClick={handlePurchase}>
                 Mua Hàng
               </button>
             </div>

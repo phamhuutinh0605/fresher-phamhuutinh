@@ -1,13 +1,19 @@
 import React from "react";
-
 import { Link, useNavigate } from 'react-router-dom';
 import { useAppDispatch } from '../store/store';
 import { addToCart } from "../store/productSlice";
 import { faEye } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
+type IProductProps = {
+  id: String,
+  title: String,
+  price: Number,
+  desc: String,
+  image: String
+}
 
-const Product = ({ id, title, price, desc, image }: { id: String | undefined, title: String | undefined, price: Number, desc: String | undefined, image: String }) => {
+const Product = ({ id, title, price, desc, image }: IProductProps) => {
   
   let quantity = 0;
   const [open, setOpen] = React.useState(false);
@@ -16,7 +22,7 @@ const Product = ({ id, title, price, desc, image }: { id: String | undefined, ti
 
   const [change,setChange]=React.useState(1);
   const dispatch = useAppDispatch();
-  const handleAddToCart = (id: String | undefined, title: String | undefined, price: Number, desc: String | undefined, image: String) => {
+  const handleAddToCart = (id: String, title: String, price: Number, desc: String, image: String) => {
     console.log("product", id)
     setChange(prev=>prev+1)
     dispatch(addToCart({
