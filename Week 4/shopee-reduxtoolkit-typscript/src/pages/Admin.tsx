@@ -1,6 +1,7 @@
 import Header from "../components/Header"
 import Datatable from "../components/DataTable"
 import Sidebar from "../components/SideBar"
+import OrderList from "./OrderList"
 
 
 const Admin = () => {
@@ -8,6 +9,7 @@ const Admin = () => {
   return (
     <>
       <Sidebar />
+      {/* <OrderList/> */}
     </>
   )
 }
