@@ -3,20 +3,22 @@ import Footer from "../components/Footer";
 import Logo from "../components/Logo";
 import { useAppSelector, useAppDispatch } from "../store/store";
 import { changeQuantity, removeFromCart } from "../store/productSlice";
-import {ChangeEvent, ChangeEventHandler, useRef, useState } from "react";
+import { ChangeEvent, useRef, useState, useEffect } from 'react';
 
-// type IProductProps = {
-//   id: String,
-//   title: String,
-//   price: Number,
-//   desc: String,
-//   image: String
-// }
+type IProductProps = {
+  id: String,
+  title: String,
+  price: Number,
+  desc: String,
+  image: String,
+  quantity:number
+}
 
 const Cart = () => {
   const navigate = useNavigate();
   const products = useAppSelector((state) => state.product?.products);
-  const handlePurchase = () => {
+  const handlePurchase = (event: any) => {
+    event.preventDefault();
     navigate("/purchase", { state: { products } });
   };
 
@@ -25,11 +27,10 @@ const Cart = () => {
   const dispatch = useAppDispatch();
 
   //change quantity --BUG---------------------
-  const [quantity,setQuantity]=useState<number>();
-  const handleChangeQuantity= (event: ChangeEvent<HTMLInputElement>) =>{
+  const [quantity, setQuantity] = useState<number>(1);
+  const handleChangeQuantity = (event: ChangeEvent<HTMLInputElement>) => {
     event.preventDefault();
-    const quantity = Number(quantityRef.current?.value || 0);
-    setQuantity(Number(quantityRef.current?.value));
+    const quantity = Number(quantityRef.current?.value);
     const id = Number(idRef.current?.value);
     dispatch(
       changeQuantity({
@@ -39,7 +40,7 @@ const Cart = () => {
     );
   };
   //--------------------------------------------
-  const handleRemoveCart = (id: String | undefined) => {
+  const handleRemoveCart = (id: String) => {
     dispatch(
       removeFromCart({
         id: id,
@@ -77,7 +78,6 @@ const Cart = () => {
                     min={1}
                     type="number"
                     ref={quantityRef}
-                    // value={quantityRef.current?}
                     value={quantity}
                     onChange={handleChangeQuantity}
                   />

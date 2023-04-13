@@ -4,10 +4,19 @@ import Header from '../components/Header'
 import React, { useState } from 'react'
 import { useEffect } from 'react';
 
+type IUserProps = {
+  id: String,
+  username: String,
+  email: Number,
+  password: String,
+  avatar: String,
+  AdminType: Boolean
+}
+
 const Order = () => {
   const location = useLocation();
   const [orders, setOrders] = useState([]);
-  const [user, setUser] = useState<any>(location.state.user)
+  const [user, setUser] = useState<IUserProps>(location.state.user)
   console.log("user",user);
   console.log("orders",orders);
   // useEffect(() => {

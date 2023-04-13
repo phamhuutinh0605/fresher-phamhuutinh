@@ -62,7 +62,7 @@ export const ProductSlice = createSlice({
         products: state.products.filter((product) =>
           product.id === action.payload.id
             ? (product.quantity =
-                Number(action.payload.quantity) + Number(product.quantity) - 1)
+              Number(action.payload.quantity) + Number(product.quantity) - 1)
             : product.quantity
         ),
       },
@@ -82,7 +82,7 @@ export const ProductSlice = createSlice({
       void {
         ...state,
         filterProduct: state.filterProduct.filter((product) =>
-        product.title.toLowerCase().includes(String(action.payload))
+          product.title.toLowerCase().includes(String(action.payload))
         ),
       },
   },

@@ -11,20 +11,21 @@ type IProductProps = {
   price: Number,
   desc: String,
   image: String,
-  quantity:Number
+  quantity: Number
 }
 
 const Purchase = () => {
   const location = useLocation();
   const [products, setCart] = useState(location.state.products || []);
+  console.log("purchase", location.state.products)
   // total
   const [total, setTotal] = useState();
   const totalPrice = useMemo(() => {
-    return products.reduce((acc:Number, curr:IProductProps) => {
+    return products.reduce((acc: Number, curr: IProductProps) => {
       return Number(acc) + Number(curr.price) * Number(curr.quantity);
     }, 0);
   }, [products]);
-  
+
 
   //link to success form
   const navigate = useNavigate();
@@ -112,12 +113,12 @@ const Purchase = () => {
               <span>Số lượng</span>
               <span>Thành tiền</span>
             </div>
-            {products?.map((product: any) => (
+            {products?.map((product: IProductProps) => (
               <div className="content__text" key={String(product.id)}>
                 <span>{handleSubString(product.title)}</span>
-                <span>{product.price}</span>
-                <span>{product.quantity}</span>
-                <span>{product.price * product.quantity}</span>
+                <span>{Number(product.price)}</span>
+                <span>{Number(product.quantity)}</span>
+                <span>{Number(product.price) * Number(product.quantity)}</span>
               </div>
             ))}
             <hr />

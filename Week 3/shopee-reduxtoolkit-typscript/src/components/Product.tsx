@@ -26,7 +26,7 @@ const Product = ({ id, title, price, desc, image }: IProductProps) => {
     console.log("product", id)
     setChange(prev=>prev+1)
     dispatch(addToCart({
-      id: String(id), title: String(title), price, desc: String(desc), image, quantity:change
+      id: String(id), title: String(title), price, desc: String(desc), image, quantity:Number(change)
     }))
   }
   const navigate=useNavigate();
