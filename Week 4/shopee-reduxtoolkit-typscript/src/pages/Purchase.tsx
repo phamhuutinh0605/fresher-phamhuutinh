@@ -4,6 +4,15 @@ import React, { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import Footer from "../components/Footer";
 import Logo from "../components/Logo";
+
+type ProductProp = {
+  desc: String;
+  id: String;
+  image: String
+  price: Number;
+  title: String;
+  quantity:Number;
+}
 const Purchase = () => {
   const location = useLocation();
   const [products, setCart] = useState(location.state.products || []);
@@ -21,13 +30,13 @@ const Purchase = () => {
     //post order
     const date = new Date();
     const data = {
-      title: products.map((product: any) => {
+      title: products.map((product: ProductProp) => {
         return product.title;
       }),
-      price: products.map((product: any) => {
+      price: products.map((product: ProductProp) => {
         return product.price;
       }),
-      amount: products.map((product: any) => {
+      amount: products.map((product: ProductProp) => {
         return product.quantity;
       }),
       total: total,
@@ -101,12 +110,12 @@ const Purchase = () => {
               <span>Số lượng</span>
               <span>Thành tiền</span>
             </div>
-            {products?.map((product: any) => (
+            {products?.map((product: ProductProp) => (
               <div className="content__text" key={String(product.id)}>
                 <span>{handleSubString(product.title)}</span>
-                <span>{product.price}</span>
-                <span>{product.quantity}</span>
-                <span>{product.price * product.quantity}</span>
+                <span>{Number(product.price)}</span>
+                <span>{Number(product.quantity)}</span>
+                <span>{Number(product.price) *Number( product.quantity)}</span>
               </div>
             ))}
             <hr />

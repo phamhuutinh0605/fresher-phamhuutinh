@@ -1,8 +1,16 @@
 import { Link, useNavigate } from 'react-router-dom';
 import Logo from "../components/Logo";
 import Footer from "../components/Footer";
-import { useState, useEffect } from 'react';
+import { useState, useEffect, ChangeEvent, ChangeEventHandler, MouseEventHandler, MouseEvent } from 'react';
 
+type UserProp = {
+  username: String;
+  email: String;
+  password: String;
+  avatar: String;
+  AdminType: true;
+  id: String;
+}
 const Login = () => {
 
   const [users, setUsers] = useState([]);
@@ -14,18 +22,18 @@ const Login = () => {
   }, [])
 
   // handle username and password
-  const handleUserName = (value: any) => {
-    setUserName(value)
+  const handleUserName = (e: ChangeEvent<HTMLInputElement>) => {
+    setUserName(e.target.value)
   }
-  const handlePassword = (value: any) => {
-    setPassword(value)
+  const handlePassword = (e: ChangeEvent<HTMLInputElement>) => {
+    setPassword(e.target.value)
   }
   const [username, setUserName] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
-  const handleLogin = (e: any) => {
+  const handleLogin = (e: MouseEvent) => {
     e.preventDefault();
-    users.map((user: any) => {
+    users.map((user: UserProp) => {
       if (user.username === username && user.password === password) {
         if (user.AdminType) {
           navigate("/login/admin", { state: { user, users } })
@@ -36,7 +44,7 @@ const Login = () => {
       }
       else if (user.username === username && user.password !== password) {
         alert("Mật khẩu của bạn không đúng !")
-        return
+        return;
       }
     })
   }
@@ -73,12 +81,12 @@ const Login = () => {
                   <form action="" className="register__form">
                     <h4>Đăng nhập</h4>
                     <div className="register__email">
-                      <input type="text" onChange={(e) => handleUserName(e.target.value)} placeholder="Tài khoản" />
+                      <input type="text" onChange={handleUserName} placeholder="Tài khoản" />
                     </div>
                     <div className="register__password">
-                      <input type="password" onChange={(e) => handlePassword(e.target.value)} placeholder="Mật khẩu" />
+                      <input type="password" onChange={handlePassword} placeholder="Mật khẩu" />
                     </div>
-                    <button className="search__button register__btn" onClick={(e) => handleLogin(e)}>
+                    <button className="search__button register__btn" onClick={handleLogin}>
                       ĐĂNG NHẬP
                     </button>
                   </form>

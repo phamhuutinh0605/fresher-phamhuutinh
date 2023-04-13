@@ -4,34 +4,46 @@ import Header from '../components/Header'
 import React, { useState } from 'react'
 import { useEffect } from 'react';
 
+type OrderProp = {
+  title: String;
+  price: Number;
+  amount: [];
+  total: Number;
+  address: String;
+  phone: String;
+  dateOrder: String;
+  idUser: String;
+  idProduct: [];
+  id: String;
+}
+
 const Order = () => {
   const location = useLocation();
   const [orders, setOrders] = useState([]);
   const [user, setUser] = useState<any>({})
   useEffect(() => {
-    console.log("location",location)
+    console.log("location", location)
     if (location?.state?.user) {
       setUser(location.state.user)
     }
-  },[location?.state?.user])
+  }, [location?.state?.user])
   useEffect(() => {
     fetch("https://64240b7f4740174043318cf3.mockapi.io/order")
       .then((response) => response.json())
       .then((data) => setOrders(data));
   }, [])
-
+  console.log(orders, "orders")
   console.log(location);
   const handleFilterOrder = () => {
-    return orders.filter((order: any) => order.idUser === user?.id)
+    return orders.filter((order: OrderProp) => order.idUser === user?.id)
   }
   console.log(handleFilterOrder())
   const [open, setOpen] = React.useState(false);
   const [order, setOrder] = useState<any>()
-  const handleOpen = (order: any) => {
+  const handleOpen = (order: OrderProp) => {
     setOpen(true)
     setOrder(order)
   };
-  console.log(order)
   const handleClose = () => setOpen(false);
 
   //change rating
@@ -80,15 +92,15 @@ const Order = () => {
         <div className="order__bg">
           <div className="order__content shopee__container">
             <h2>Đơn hàng của bạn</h2>
-            {handleFilterOrder().map((order: any) => {
+            {handleFilterOrder().map((order: OrderProp) => {
               return (
-                <div className="review__order" key={order.id}>
+                <div className="review__order" key={order.id.toString()}>
                   <div className="avatar">
                     <span>{order.title} </span>
                   </div>
                   <div className="review__infor">
                     <div className="username">
-                      <span>{order.price}</span>
+                      <span>{order.price.toString()}</span>
                     </div>
                     <div className="desc">
                       <span>{order.amount}</span>

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { Button, Form, FormGroup, Label, Input } from "reactstrap";
-import { addOrder, updateOrder } from "../store/ordersSlice";
+import { addOrder, updateOrder } from '../store/ordersSlice';
 
 export interface Order {
   id: String;
@@ -41,7 +41,7 @@ const OrderForm: React.FC<OrderFormProps> = ({ initialOrder, toggle }) => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (Number(order.id) === 0) {
-      dispatch(addOrder(order));
+      // dispatch(addOrder(order));
     } else {
       dispatch(updateOrder(order));
     }

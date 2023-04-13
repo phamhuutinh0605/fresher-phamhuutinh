@@ -1,13 +1,15 @@
-import { Link } from "react-router-dom";
-import { useLocation } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { useState, useEffect, ChangeEvent, MouseEvent } from 'react';
 import OrderList from "pages/OrderList";
+import { useAppDispatch, useAppSelector } from "store/store";
 
 const Sidebar = () => {
   const location = useLocation();
   const [user, setUser] = useState(location.state.user);
 
   //fetch product data
+  // const dispatch=useAppDispatch()
+  const products=useAppSelector(state=>state.order.orders)
   const [productList, setProductList] = useState([]);
   useEffect(() => {
     fetch("https://6183caa491d76c00172d1b4b.mockapi.io/api/product")
@@ -44,12 +46,12 @@ const Sidebar = () => {
 
   // add procduct
   const [addProduct, setAddProduct] = useState({});
-  const [name, setName] = useState();
-  const [desc, setDesc] = useState();
-  const [img, setImg] = useState();
-  const [price, setPrice] = useState();
-  const onName = (value: any) => {
-    setName(value);
+  const [name, setName] = useState("");
+  const [desc, setDesc] = useState("");
+  const [img, setImg] = useState("");
+  const [price, setPrice] = useState<Number>();
+  const onName = (e:ChangeEvent<HTMLInputElement>) => {
+    setName(e.target.value);
   };
   const onDesc = (value: any) => {
     setDesc(value);
@@ -82,10 +84,10 @@ const Sidebar = () => {
   };
 
   // remove product
-  const handleRemoveProduct = async (id: String, e: any) => {
+  const handleRemoveProduct = async (e:MouseEvent,id: String) => {
     console.log(id);
     e.preventDefault();
-    await fetch(
+   return await fetch(
       `https://6183caa491d76c00172d1b4b.mockapi.io/api/product/${id}`,
       {
         method: "DELETE", // or 'PUT'
@@ -142,7 +144,7 @@ const Sidebar = () => {
                     <Link
                       to=""
                       className="sidebar__item--del"
-                      onClick={(e) => handleRemoveProduct(user.id, e)}
+                      onClick={(e)=>handleRemoveProduct(e,user.id)}
                     >
                       Delete
                     </Link>
@@ -154,20 +156,21 @@ const Sidebar = () => {
               );
             })}
           {
-            toggle === false && <OrderList />
-            // orderList.map((user: any) => {
-            //   return (
-            //     <div className="sidebar__item" key={user.id}>
-            //       <p>{user.id}</p>
-            //       <p>{user.title}</p>
-            //       <p>{user.price}</p>
-            //       <div className="sidebar__action--btn">
-            //         <Link to="" className="sidebar__item--del" onClick={(e) => handleRemoveProduct(user.id, e)}>Delete</Link>
-            //         <Link to="" className="sidebar__item--edit">Edit</Link>
-            //       </div>
-            //     </div>
-            //   )
-            // })
+            toggle === false && 
+            // <OrderList />
+            orderList.map((user: any) => {
+              return (
+                <div className="sidebar__item" key={user.id}>
+                  <p>{user.id}</p>
+                  <p>{user.title}</p>
+                  <p>{user.price}</p>
+                  <div className="sidebar__action--btn">
+                    <Link to="" className="sidebar__item--del" onClick={(e) => handleRemoveProduct(e,user.id)}>Delete</Link>
+                    <Link to="" className="sidebar__item--edit">Edit</Link>
+                  </div>
+                </div>
+              )
+            })
           }
         </div>
         {toggle && (
@@ -192,25 +195,25 @@ const Sidebar = () => {
                 <input
                   type="text"
                   className="review__input"
-                  onChange={(e) => onName(e.target.value)}
+                  onChange={onName}
                 />
                 <span> MÔ TẢ</span>
                 <input
                   className="review__input"
                   type="text"
-                  onChange={(e) => onDesc(e.target.value)}
+                  onChange={onDesc}
                 />
                 <span>HÌNH ẢNH</span>
                 <input
                   className="review__input"
                   type="text"
-                  onChange={(e) => onImg(e.target.value)}
+                  onChange={onImg}
                 />
                 <span> GIÁ </span>
                 <input
                   className="review__input"
                   type="number"
-                  onChange={(e) => onPrice(e.target.value)}
+                  onChange={onPrice}
                 />
               </div>
               <div className="review__order order__react">

@@ -43,7 +43,7 @@ export const ProductSlice = createSlice({
       ...state,
       products: state.products.filter((product) =>
         product.id === action.payload.id
-          ? (product.quantity = Number(action.payload.quantity) + Number(product.quantity) - 1)
+          ? (product.quantity = Number(action.payload.quantity) )
           : product.quantity
       )
     },

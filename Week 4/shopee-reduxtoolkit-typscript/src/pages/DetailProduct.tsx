@@ -4,7 +4,7 @@ import { addToCart, changeQuantity } from '../store/productSlice';
 import { useAppDispatch } from '../store/store';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import { useEffect } from 'react';
+import { useEffect, ChangeEvent } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar } from '@fortawesome/free-solid-svg-icons';
 
@@ -19,12 +19,12 @@ const DetailProduct = () => {
   const dispatch = useAppDispatch();
 
   // change quantity
-  const handleChangeQuantity = (id: String, value: Number) => {
-    setQuantity(value)
+  const handleChangeQuantity = (id: String, e: ChangeEvent<HTMLInputElement>) => {
+    setQuantity(e.target.value)
     dispatch(changeQuantity({
-      id: String(id), quantity: value
+      id: String(id), quantity: parseInt(e.target.value)
     }))
-    console.log(value)
+    console.log(e.target.value)
   }
 
   //add to cart
@@ -80,7 +80,7 @@ const DetailProduct = () => {
                     min={1}
                     type="number"
                     value={quantity}
-                    onChange={(e) => handleChangeQuantity(String(id), Number(e.target.value))}
+                    onChange={(e) => handleChangeQuantity(String(id),e)}
                   />
                   <span> 68 sản phẩm có sẵn</span>    
                 </div>

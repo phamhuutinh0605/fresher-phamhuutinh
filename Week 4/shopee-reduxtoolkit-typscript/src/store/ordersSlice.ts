@@ -9,21 +9,22 @@ export interface Order {
   image: String;
   quantity: Number;
 }
-export const fetchOrders = createAsyncThunk<
-  Order[],
-  void,
-  { rejectValue: string }
->("Orders/fetchOrders", async (_, thunkAPI) => {
+export const fetchOrders = createAsyncThunk("orders/fetchOrders", async (_, thunkAPI) => {
   try {
-    const response: AxiosResponse<Order[]> = await axios.get<Order[]>(
-      "https://6183caa491d76c00172d1b4b.mockapi.io/api/product"
-    ); // gửi request đến API mock
+    const response: AxiosResponse<Order[]> = await axios.get<Order[]>("https://6183caa491d76c00172d1b4b.mockapi.io/api/product"); // gửi request đến API mock
     return response.data;
   } catch (error) {
     return thunkAPI.rejectWithValue("Failed to fetch Orders");
   }
 });
-
+export const addOrder = createAsyncThunk("orders/addOrder", async (body: Omit<Order, 'id'>, thunkAPI) => {
+  try {
+    const response: AxiosResponse<Order> = await axios.post<Order>("https://6183caa491d76c00172d1b4b.mockapi.io/api/product",body); // gửi request đến API mock
+    return response.data;
+  } catch (error) {
+    return thunkAPI.rejectWithValue("Failed to fetch Orders");
+  }
+});
 interface OrdersState {
   orders: Order[];
   status: "idle" | "loading" | "failed";
@@ -41,9 +42,9 @@ export const OrdersSlice = createSlice({
   initialState,
   reducers: {
     // Thêm sản phẩm mới
-    addOrder: (state, action: PayloadAction<Order>) => {
-      state.orders.push(action.payload);
-    },
+    // addOrder: (state, action: PayloadAction<Order>) => {
+    //   state.orders.push(action.payload);
+    // },
     // Xóa sản phẩm
     removeOrder: (state, action: PayloadAction<number>) => {
       state.orders = state.orders.filter(
@@ -66,10 +67,14 @@ export const OrdersSlice = createSlice({
       state.status = "loading";
     });
     // Xử lý khi lấy dữ liệu thành công
-    builder.addCase(fetchOrders.fulfilled, (state, action) => {
-      state.status = "idle";
-      state.orders = action.payload;
-    });
+    builder
+      .addCase(fetchOrders.fulfilled, (state, action) => {
+        state.status = "idle";
+        state.orders = action.payload;
+      })
+      .addCase(addOrder.fulfilled,(state,action)=>{
+        state.orders.push(action.payload)
+      })
     // Xử lý khi lấy dữ liệu thất bại
     builder.addCase(fetchOrders.rejected, (state, action) => {
       state.status = "failed";
@@ -79,4 +84,4 @@ export const OrdersSlice = createSlice({
 });
 
 export default OrdersSlice.reducer;
-export const { addOrder, removeOrder, updateOrder } = OrdersSlice.actions;
+export const { removeOrder, updateOrder } = OrdersSlice.actions;

@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React, { ChangeEvent } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCartShopping,
@@ -14,7 +14,7 @@ const Navbar = () => {
 
   // const inputRef = useRef<any>();
   const dispatch = useAppDispatch();
-  const handleFilterByName = (e: any) => {
+  const handleFilterByName = (e:ChangeEvent<HTMLInputElement>) => {
     e.preventDefault()
     dispatch(filterProduct(e.target.value))
   }
@@ -30,7 +30,7 @@ const Navbar = () => {
           type="text"
           className="search__input"
           // ref={inputRef}
-          onChange={(e) => handleFilterByName(e)}
+          onChange={handleFilterByName}
         />
         <button className="search__button">
           <FontAwesomeIcon icon={faMagnifyingGlass} />

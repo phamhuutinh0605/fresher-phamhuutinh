@@ -3,6 +3,7 @@ import Footer from "../components/Footer";
 import Logo from "../components/Logo";
 import { useAppSelector, useAppDispatch } from '../store/store';
 import { changeQuantity, removeFromCart } from "../store/productSlice";
+import { ChangeEvent } from 'react';
 const Cart = () => {
 
   const navigate = useNavigate();
@@ -12,12 +13,12 @@ const Cart = () => {
   };
   
   const dispatch = useAppDispatch();
-  const handleChangeQuantity = (id: String, value: Number) => {
+  const handleChangeQuantity = (id: String, e:ChangeEvent<HTMLInputElement>) => {
     dispatch(changeQuantity({
-      id: String(id), quantity: value
+      id: String(id), quantity: parseInt(e.target.value)
     }))
   }
-  const handleRemoveCart = (id: String|undefined) => {
+  const handleRemoveCart = (id: String) => {
     dispatch(removeFromCart({
       id: id
     }))
@@ -49,7 +50,7 @@ const Cart = () => {
                     min={1}
                     type="number"
                     value={Number(product.quantity)}
-                    onChange={(e) => handleChangeQuantity(String(product.id), Number(e.target.value))}
+                    onChange={(e) => handleChangeQuantity(String(product.id), e)}
                   />
                   <span>{Number(product.quantity) * Number(product.price)}</span>
                   <button
