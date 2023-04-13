@@ -44,7 +44,7 @@ const Cart = () => {
               </div>
               {products.map((product) => (
                 <div className="content__text" key={String(product.id)}>
-                  <span className="text__title">{product.title} Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam praesentium dignissimos repellendus est ullam fugiat excepturi animi quibusdam eum dolore.</span>
+                  <span className="text__title">{product.title}</span>
                   <span>{String(product.price)}</span>
                   <input
                     min={1}
