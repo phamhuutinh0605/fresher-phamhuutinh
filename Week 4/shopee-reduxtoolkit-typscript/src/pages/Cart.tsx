@@ -69,7 +69,7 @@ const Cart = () => {
             </div>
           </div>
         ) : (
-          <h2 style={{ textAlign: "center" }}>Bạn chưa chọn sản phẩm nào</h2>
+          <h2 style={{ textAlign: "center" }}>Bạn chưa chọn sản phẩm nào!</h2>
         )}
       </div>
       <Footer />
