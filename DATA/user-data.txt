@@ -1,0 +1,66 @@
+[
+ {
+  "username": "huutinhadmin",
+  "email": "phamhuutinh801@gmail.com",
+  "password": "12345",
+  "avatar": "https://static.vecteezy.com/system/resources/previews/001/993/889/non_2x/beautiful-latin-woman-avatar-character-icon-free-vector.jpg",
+  "AdminType": true,
+  "id": "1"
+ },
+ {
+  "username": "huutinh0605",
+  "email": "phamhuutinh9999@gmail.com",
+  "password": "12345",
+  "avatar": "https://static.vecteezy.com/system/resources/previews/001/993/889/non_2x/beautiful-latin-woman-avatar-character-icon-free-vector.jpg",
+  "AdminType": false,
+  "id": "2"
+ },
+ {
+  "username": "username 3",
+  "email": "email 3",
+  "password": "password 3",
+  "avatar": "https://static.vecteezy.com/system/resources/previews/017/793/124/non_2x/avatar-illustration-of-a-person-human-teenager-boy-vector.jpg",
+  "AdminType": false,
+  "id": "3"
+ },
+ {
+  "username": "username 4",
+  "email": "email 4",
+  "password": "password 4",
+  "avatar": "https://static.vecteezy.com/system/resources/previews/017/793/124/non_2x/avatar-illustration-of-a-person-human-teenager-boy-vector.jpg",
+  "AdminType": false,
+  "id": "4"
+ },
+ {
+  "username": "username 5",
+  "email": "email 5",
+  "password": "password 5",
+  "avatar": "https://static.vecteezy.com/system/resources/previews/001/993/889/non_2x/beautiful-latin-woman-avatar-character-icon-free-vector.jpg",
+  "AdminType": false,
+  "id": "5"
+ },
+ {
+  "username": "username 6",
+  "email": "email 6",
+  "password": "password 6",
+  "avatar": "https://static.vecteezy.com/system/resources/previews/001/993/889/non_2x/beautiful-latin-woman-avatar-character-icon-free-vector.jpg",
+  "AdminType": false,
+  "id": "6"
+ },
+ {
+  "username": "username 7",
+  "email": "email 7",
+  "password": "password 7",
+  "avatar": "https://static.vecteezy.com/system/resources/previews/001/993/889/non_2x/beautiful-latin-woman-avatar-character-icon-free-vector.jpg",
+  "AdminType": false,
+  "id": "7"
+ },
+ {
+  "username": "username 8",
+  "email": "email 8",
+  "password": "password 8",
+  "avatar": "https://static.vecteezy.com/system/resources/previews/001/993/889/non_2x/beautiful-latin-woman-avatar-character-icon-free-vector.jpg",
+  "AdminType": false,
+  "id": "8"
+ }
+]
