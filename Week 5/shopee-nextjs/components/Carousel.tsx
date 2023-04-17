@@ -56,10 +56,13 @@ const Carousel = () => {
                 onClick={() => handleMove("l")}
               />
               <div className="sliderWrapper">
-                <img
+                <Image
                   src={photos[slideNumber].src}
                   alt="https://cf.shopee.vn/file/vn-50009109-6ee065e1e77877f4001ae4efebdf6f10_xxhdpi"
                   className="sliderImg"
+                  width={600}
+                  height={200}
+
                 />
               </div>
               <FaArrowCircleRight
@@ -71,15 +74,20 @@ const Carousel = () => {
           <div className="content__right">
             <div className="carousel__ads">
               <div className="ads__img">
-                <img
+                <Image
                    src="https://cf.shopee.vn/file/vn-50009109-2ebd8dc698d738db0ffedce344e87bbd_xhdpi"
                   alt=""
+                  width={600}
+                  height={200}
+
                 />
               </div>
               <div className="ads__img">
-                <img
+                <Image
                   src="https://cf.shopee.vn/file/vn-50009109-30002e735028feb7e31680e1b654772d_xhdpi"
                   alt=""
+                  width={600}
+                  height={200}
                 />
               </div>
             </div>

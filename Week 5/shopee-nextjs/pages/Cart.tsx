@@ -3,7 +3,6 @@ import Logo from "../components/Logo";
 import { useAppSelector, useAppDispatch } from '../store/store';
 import { changeQuantity, removeFromCart } from "../store/productSlice";
 import { useRouter } from "next/router";
-import { useState } from "react"
 const Cart = () => {
 
   const router = useRouter()

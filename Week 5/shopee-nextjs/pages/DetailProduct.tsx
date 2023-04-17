@@ -7,6 +7,7 @@ import { useEffect } from 'react';
 import Link from 'next/link';
 import { FaStar } from 'react-icons/fa';
 import { useRouter } from 'next/router';
+import Image from 'next/image';
 
 export type Product = {
   id: String;
@@ -71,7 +72,7 @@ const DetailProduct = () => {
         <div className="product__bg">
           <div className="detail__content shopee__container">
             <div className="detail__left">
-              <img alt="green iguana" src={String(image)} />
+              <Image alt="green iguana" src={String(image)} />
             </div>
             <div className="detail__right">
               <div className="detail__information">
@@ -129,7 +130,7 @@ const DetailProduct = () => {
               return (
                 <div className="review__item" key={item.id}>
                   <div className="avatar">
-                    <img src={item.avatar} alt="" />
+                    <Image src={item.avatar} alt="" />
                   </div>
                   <div className="review__infor">
                     <div className="username">

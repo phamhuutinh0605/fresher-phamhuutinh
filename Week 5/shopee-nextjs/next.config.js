@@ -1,25 +1,25 @@
-/** @type {import('next').NextConfig} */
+//@type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-}
-// module.exports = {
-//   async redirects() {
-//     return [
-//       {
-//         source: '/about',
-//         destination: '/',
-//         permanent: true,
-//       },
-//     ]
-//   },
-// }
-const path = require('path');
-
-module.exports = {
-  sassOptions: {
-    includePaths: [path.join(__dirname, 'scss')],
+  swcMinify: true,
+  optimizedFonts: true,
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "cf.shopee.vn",
+      },
+    ],
+   
   },
 };
 
-module.exports = nextConfig
+const path = require("path");
 
+module.exports = {
+  sassOptions: {
+    includePaths: [path.join(__dirname, "scss")],
+  },
+};
+
+module.exports = nextConfig;
