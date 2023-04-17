@@ -45,7 +45,7 @@ const Product = ({ id, title, price, desc, image }: { id: String , title: String
   return (
     <div className="product__item">
       <div className="item__card">
-        <img alt="green iguana" src={String(image)} width={500} />
+        <Image alt="green iguana" src={String(image)} width={500}  height={300}/>
         <div className="product__content">
           <h5>{title}</h5>
         </div>
@@ -79,7 +79,7 @@ const Product = ({ id, title, price, desc, image }: { id: String , title: String
                     X
                   </button>
                 </div>
-                <img alt="green iguana1111" src={String(image)} width={500}/>
+                <Image alt="green iguana1111" src={String(image)} width={500} height={300}/>
                 <span>{desc}</span>
                 <div className="product__action">
                   <div className="card__action">

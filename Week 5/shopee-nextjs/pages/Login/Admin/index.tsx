@@ -6,13 +6,13 @@ import Link from "next/link";
 const Admin = () => {
 
   const router = useRouter();
-  const { users }: any = router.query;
+  const { users }: any = router?.query;
   const userParse = JSON.parse(users);
   const [user, setUser] = useState(userParse);
 
   //fetch product data
   // const dispatch=useAppDispatch()
-  const products = useAppSelector(state => state.order.orders)
+  const products = useAppSelector(state => state.order?.orders)
   const [productList, setProductList] = useState([]);
   useEffect(() => {
     fetch("https://6183caa491d76c00172d1b4b.mockapi.io/api/product")

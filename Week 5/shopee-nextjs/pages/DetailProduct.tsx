@@ -40,7 +40,7 @@ const DetailProduct = () => {
   }
 
   //add to cart
-  const handleAddToCart = (id: String | undefined, title: String | undefined, price: Number, desc: String | undefined, image: String, quantity: Number) => {
+  const handleAddToCart = (id: String, title: String, price: Number, desc: String, image: String, quantity: Number) => {
     console.log("product", id)
     dispatch(addToCart({
       id: String(id), title: String(title), price, desc: String(desc), image, quantity: quantity
