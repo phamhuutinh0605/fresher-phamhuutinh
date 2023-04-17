@@ -1,8 +1,16 @@
 import { Link, useNavigate } from 'react-router-dom';
 import Logo from "../components/Logo";
 import Footer from "../components/Footer";
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
+type IUserProps = {
+  id: String,
+  username: String,
+  email: Number,
+  password: String,
+  avatar: String,
+  AdminType: Boolean
+}
 const Login = () => {
 
   const [users, setUsers] = useState([]);
@@ -14,18 +22,24 @@ const Login = () => {
   }, [])
 
   // handle username and password
-  const handleUserName = (value: any) => {
-    setUserName(value)
+  const nameRef=useRef<HTMLInputElement>(null);
+  const passwordRef=useRef<HTMLInputElement>(null);
+  const handleUserName = () => {
+    const value = nameRef.current?.value;
+    setUserName(String(value))
   }
-  const handlePassword = (value: any) => {
-    setPassword(value)
+  const handlePassword = () => {
+    const value = passwordRef.current?.value;
+    setPassword(String(value))
   }
   const [username, setUserName] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
-  const handleLogin = (e: any) => {
-    e.preventDefault();
-    users.map((user:any) => {
+
+  // const submitRef = useRef<HTMLFormElement>(null);
+  const handleLogin = (event: React.MouseEvent<HTMLButtonElement>) => {
+    event.preventDefault()
+    users.map((user:IUserProps) => {
       if (user.username === username && user.password === password) {
         navigate("/login/order", { state: { user } })
         console.log("order-user", user)
@@ -69,12 +83,12 @@ const Login = () => {
                   <form action="" className="register__form">
                     <h4>Đăng nhập</h4>
                     <div className="register__email">
-                      <input type="text" onChange={(e) => handleUserName(e.target.value)} placeholder="Email" />
+                      <input type="text" ref={nameRef} onChange={handleUserName} placeholder="Email" />
                     </div>
                     <div className="register__password">
-                      <input type="password" onChange={(e) => handlePassword(e.target.value)} placeholder="Mật khẩu" />
+                      <input type="password"  ref={passwordRef}  onChange={handlePassword} placeholder="Mật khẩu" />
                     </div>
-                    <button className="search__button register__btn" onClick={(e) => handleLogin(e)}>
+                    <button className="search__button register__btn" onClick={handleLogin}>
                       ĐĂNG NHẬP
                     </button>
                   </form>

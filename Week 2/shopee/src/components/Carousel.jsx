@@ -1,10 +1,8 @@
 import {
   faCircleArrowLeft,
   faCircleArrowRight,
-  faCircleXmark,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { Container, Grid } from "@mui/material";
 import React, { useState } from "react";
 
 const Carousel = () => {

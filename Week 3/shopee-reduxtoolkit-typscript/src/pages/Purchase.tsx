@@ -1,19 +1,31 @@
 import { faLocationDot } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import Footer from "../components/Footer";
 import Logo from "../components/Logo";
+
+type IProductProps = {
+  id: String,
+  title: String,
+  price: Number,
+  desc: String,
+  image: String,
+  quantity: Number
+}
+
 const Purchase = () => {
   const location = useLocation();
   const [products, setCart] = useState(location.state.products || []);
+  console.log("purchase", location.state.products)
   // total
   const [total, setTotal] = useState();
-  useEffect(() => {
-    setTotal(
-      products?.reduce((acc: any, curr: any) => acc + Number(curr.price) * curr.quantity, 0)
-    );
+  const totalPrice = useMemo(() => {
+    return products.reduce((acc: Number, curr: IProductProps) => {
+      return Number(acc) + Number(curr.price) * Number(curr.quantity);
+    }, 0);
   }, [products]);
+
 
   //link to success form
   const navigate = useNavigate();
@@ -101,12 +113,12 @@ const Purchase = () => {
               <span>Số lượng</span>
               <span>Thành tiền</span>
             </div>
-            {products?.map((product: any) => (
+            {products?.map((product: IProductProps) => (
               <div className="content__text" key={String(product.id)}>
                 <span>{handleSubString(product.title)}</span>
-                <span>{product.price}</span>
-                <span>{product.quantity}</span>
-                <span>{product.price * product.quantity}</span>
+                <span>{Number(product.price)}</span>
+                <span>{Number(product.quantity)}</span>
+                <span>{Number(product.price) * Number(product.quantity)}</span>
               </div>
             ))}
             <hr />
@@ -115,7 +127,7 @@ const Purchase = () => {
                 Thanh Toán
               </button>
               <span>
-                <b>{total} VNĐ</b>
+                <b>{totalPrice} VNĐ</b>
               </span>
             </div>
           </div>

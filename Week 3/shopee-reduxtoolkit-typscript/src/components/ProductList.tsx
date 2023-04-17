@@ -2,8 +2,16 @@ import { useState, useEffect } from 'react';
 import Product from "./Product";
 import { useAppDispatch, useAppSelector } from '../store/store';
 import { fetchToProductList } from 'store/productSlice';
-const ProductList = () => {
 
+type IProductProps = {
+  id: String,
+  title: String,
+  price: Number,
+  desc: String,
+  image: String
+}
+const ProductList = () => {
+ 
   const products = useAppSelector((state) => state.product.filterProduct);
 
   const [productList, setProductList] = useState([]);
@@ -20,7 +28,7 @@ const ProductList = () => {
     <div className="productList">
       <div className="shopee__container">
         <div className="product__content">
-          {productList.map((product: any) => {
+          {productList.map((product: IProductProps) => {
             return (
               <Product key={String(product.id)} id={product.id} title={product.title} price={product.price} desc={product.desc} image={product.image} />
             );
