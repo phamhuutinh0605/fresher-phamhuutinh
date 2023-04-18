@@ -15,7 +15,7 @@ const ProductList = () => {
         setProductList(data)
         dispatch(fetchToProductList(data))
       })
-  })
+  },[])
   return (
     <div className="productList">
       <div className="shopee__container">

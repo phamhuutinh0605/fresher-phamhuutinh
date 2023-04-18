@@ -3,12 +3,34 @@ import Footer from "../components/Footer";
 import Logo from "../components/Logo";
 import { useRouter } from "next/router";
 
+type Order = {
+  title: string[];
+  price: string[];
+  amount: string[];
+  total: number;
+  address: string;
+  phone: string;
+  dateOrder: string;
+  id: String;
+}
 const SuccessPage = () => {
   const router = useRouter();
-  const { data }: any = router?.query;
-  const dataParse = JSON.parse(data)
+  const { data } = router?.query;
+  let dataParse: Order = {
+    title: [],
+    price: [],
+    amount: [],
+    total: 0,
+    address: "",
+    phone: "",
+    dateOrder: "",
+    id: "",
+  };
+  if (data) {
+    dataParse = JSON.parse(data as string);
+  }
   const [order, setOrder] = useState(dataParse);
-
+  console.log(data)
   return (
     <>
       <div className="successpage">
@@ -30,11 +52,11 @@ const SuccessPage = () => {
           <div className="cart__bg">
             <div className="cart__content">
               <div className="order__information">
-                <h3>- Sản phẩm: 
-                  {order?.title.map((title: String, index: number) => {
-                  return <p key={index}>{title}</p>
-                })}
-                 </h3>
+                <h3>- Sản phẩm:
+                  {order?.title?.map((title: String, index: number) => {
+                    return <p key={index}>{title}</p>
+                  })}
+                </h3>
                 <h3>Thành tiền:{order.total}</h3>
                 <h3>Địa chỉ:{order.address}</h3>
                 <h3>Số điện thoại:{order.phone}</h3>

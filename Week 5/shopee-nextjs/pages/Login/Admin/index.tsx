@@ -3,13 +3,31 @@ import { useAppDispatch, useAppSelector } from "../../../store/store";
 import { useRouter } from "next/router";
 import Link from "next/link";
 
+type User = {
+  AdminType: boolean;
+  avatar: string;
+  email: string;
+  id: string;
+  password: string;
+  username: string;
+}
 const Admin = () => {
 
   const router = useRouter();
-  const { users }: any = router?.query;
-  const userParse = JSON.parse(users);
-  const [user, setUser] = useState(userParse);
-
+  const { users } = router?.query;
+  let userParse:User={
+    AdminType: false,
+    avatar: "",
+    email: "",
+    id: "",
+    password: "",
+    username: "",
+  }
+  if(users){
+    userParse = JSON.parse(users as string);
+  }
+  const [user, setUser] = useState<User>(userParse);
+  console.log(user)
   //fetch product data
   // const dispatch=useAppDispatch()
   const products = useAppSelector(state => state.order?.orders)

@@ -8,6 +8,7 @@ import Link from 'next/link';
 import { FaStar } from 'react-icons/fa';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
+import { ProductProp } from '@/types';
 
 export type Product = {
   id: String;
@@ -19,12 +20,22 @@ export type Product = {
 }
 const DetailProduct = () => {
   const router = useRouter();
-  const {product}: any = router.query;
-  const productParse = JSON.parse(product);
+  const { product } = router.query;
+  let productParse: Product = {
+    id: "",
+    title: "",
+    price: 0,
+    desc: "",
+    image: "",
+    quantity: 0,
+  }
+  if (product) {
+    productParse = JSON.parse(product as string);
+  }
 
   const [id, setId] = useState(productParse.id)
   const [title, setTitle] = useState(productParse.title)
-  const [price, setPrice] = useState(productParse.price)
+  const [price, setPrice] = useState<Number>(productParse.price)
   const [image, setImage] = useState(productParse.image)
   const [desc, setDessc] = useState(productParse.desc);
   const [quantity, setQuantity] = useState(productParse.quantity);
@@ -78,7 +89,7 @@ const DetailProduct = () => {
               <div className="detail__information">
                 <h2 >{title}</h2>
                 <div className="detail__price">
-                  <span>$ {price}</span>
+                  <span>$ {Number(price)}</span>
                   <p>Gì cũng rẻ</p>
                   <p>Giá tốt nhất so với các sản phẩm cùng loại trên Shopee!</p>
                 </div>
@@ -91,7 +102,7 @@ const DetailProduct = () => {
                   <input
                     min={1}
                     type="number"
-                    value={quantity}
+                    value={Number(quantity)}
                     onChange={(e) => handleChangeQuantity(String(id), Number(e.target.value))}
                     style={{ width: 40, border: "1px solid black" }}
                   />

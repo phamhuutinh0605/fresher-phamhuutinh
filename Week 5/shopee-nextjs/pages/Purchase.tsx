@@ -3,18 +3,42 @@ import Footer from "../components/Footer";
 import Logo from "../components/Logo";
 import { useRouter } from "next/router";
 import { FaLocationArrow } from "react-icons/fa";
+import { Order, ProductProp } from "@/types";
+import { v4 as uuidv4 } from 'uuid';
+
+type Product = {
+  desc: string[];
+  id: string;
+  image: string;
+  price: Number[];
+  title: string[];
+  quantity: Number[];
+}
 const Purchase = () => {
 
   const router = useRouter();
-  const { productList }: any = router?.query;
-  const productParse = JSON.parse(productList);
-  const [products, setCart] = useState(productParse || []);
+  const { productList } = router?.query;
+  let productParse: Product[]=[
+    {
+      desc: [],
+      id: "",
+      image: "",
+      price: [],
+      title: [],
+      quantity: [],
+    }
+  ]
+
+  if (productList) {
+    productParse = JSON.parse(productList as string)
+  }
+  const [products, setCart] = useState<Product[]>(productParse || []);
   // total
-  const [total, setTotal] = useState();
+  const [total, setTotal] = useState(0);
   useEffect(() => {
     setTotal(
-      products?.reduce((acc: any, curr: any) => acc + Number(curr.price) * curr.quantity, 0)
-    );
+      products?.reduce((acc: Number, curr: Product) => Number(acc) + Number(curr.price) * Number(curr.quantity), 0)
+      );
   }, [products]);
 
   //link to success form
@@ -22,21 +46,21 @@ const Purchase = () => {
     //post order
     const date = new Date();
     const data = {
-      title: products.map((product: any) => {
+      title: products?.map((product) => {
         return product.title;
       }),
-      price: products.map((product: any) => {
+      price: products?.map((product) => {
         return product.price;
       }),
-      amount: products.map((product: any) => {
+      amount: products?.map((product) => {
         return product.quantity;
       }),
-      total: total,
+      total: Number(total),
       address: "20 nguyễn khoái, quận 4",
       phone: "0977965165",
       dateOrder:
         date.getDate() + "-" + (date.getMonth() + 1) + "-" + date.getFullYear(),
-      id: date,
+      id: uuidv4(),
     };
     await fetch("https://64240b7f4740174043318cf3.mockapi.io/order", {
       method: "POST", // or 'PUT'
@@ -57,7 +81,7 @@ const Purchase = () => {
     console.log(products, data);
   };
 
-  const handleSubString = (title: String) => {
+  const handleSubString = (title:string[]) => {
     return title.length > 10 ? title.slice(0, 10) + "..." : title
   }
   return (
@@ -104,12 +128,12 @@ const Purchase = () => {
               <span>Số lượng</span>
               <span>Thành tiền</span>
             </div>
-            {products.length > 0 && products?.map((product: any) => (
+            {products.length > 0 && products?.map((product) => (
               <div className="content__text" key={String(product.id)}>
                 <span>{handleSubString(product.title)}</span>
-                <span>{product.price}</span>
-                <span>{product.quantity}</span>
-                <span>{product.price * product.quantity}</span>
+                <span>{Number(product.price)}</span>
+                <span>{Number(product.quantity)}</span>
+                <span>{Number(product.price) * Number(product.quantity)}</span>
               </div>
             ))}
             <hr />
