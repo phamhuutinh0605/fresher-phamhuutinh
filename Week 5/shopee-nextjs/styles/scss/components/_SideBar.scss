@@ -162,3 +162,62 @@
     }
   }
 }
+// -----------------SIDEBAR_ADMIN-------------------------------------------
+/* SIDEBAR */
+.sidebar {
+	position: fixed;
+	max-width: 260px;
+	width: 100%;
+	background: var(--light);
+	top: 0;
+	left: 0;
+	height: 100%;
+	overflow-y: auto;
+	scrollbar-width: none;
+	transition: all 0.3s ease;
+	z-index: 200;
+  .sidebar__brand {
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    height: 64px;
+    font-weight: 700;
+    color: var(--blue);
+    background: var(--light);
+    transition: all 0.3s ease;
+    padding: 5px 40px;
+    span {
+      margin-left: 10px;
+    }
+  }
+  .sidebar__menu {
+    display: flex;
+    flex-direction: column;
+    margin: 36px 0;
+    padding: 0 20px;
+    transition: all 0.3s ease;
+    a {
+      display: flex;
+      align-items: center;
+      font-size: 14px;
+      color: var(--dark-grey);
+      padding: 15px 30px;
+      transition: all 0.1s ease;
+      white-space: nowrap;
+      &:hover {
+        border-left: 5px solid #007bff;
+        background: var(--grey);
+        color: var(--blue);
+      }
+      &:focus {
+        border-left: 5px solid #007bff;
+        background: var(--grey);
+        color: var(--blue);
+      }
+      svg {
+        margin-right: 10px;
+        font-size: 18px;
+      }
+    }
+  }
+}

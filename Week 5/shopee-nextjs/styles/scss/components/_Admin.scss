@@ -1,1 +1,34 @@
 // ADMIN
+:root {
+	--grey: #f1f0f6;
+	--dark-grey: #8d8d8d;
+	--light: #fff;
+	--dark: #000;
+	--light-green: #e3ffcb;
+	--blue: #007bff;
+	--light-blue: #d0e4ff;
+	--dark-blue: #006fe6;
+	--red: #fc3b56;
+}
+
+html {
+	overflow-x: hidden;
+}
+
+body {
+	background: var(--grey);
+	overflow-x: hidden;
+}
+
+a {
+	text-decoration: none;
+}
+
+li {
+	list-style: none;
+}
+
+@import "Search.scss";
+@import "Content.scss";
+@import "AddNew.scss";
+@import "OptionForm.scss";

@@ -16,3 +16,14 @@ export type Order = {
   dateOrder: string;
   id: String;
 }
+export interface User {
+  id: String;
+  email: String;
+  username: String;
+  password: String;
+  address: {
+    street:String;
+    city:String;
+  };
+  phone: Number;
+}

@@ -30,7 +30,7 @@ const Admin = () => {
   console.log(user)
   //fetch product data
   // const dispatch=useAppDispatch()
-  const products = useAppSelector(state => state.order?.orders)
+  // const products = useAppSelector(state => state.order?.orders)
   const [productList, setProductList] = useState([]);
   useEffect(() => {
     fetch("https://6183caa491d76c00172d1b4b.mockapi.io/api/product")

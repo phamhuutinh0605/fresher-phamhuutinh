@@ -13,6 +13,10 @@ const nextConfig = {
         protocol: "https",
         hostname: "cf.shopee.vn",
       },
+      {
+        protocol: "https",
+        hostname: "*",
+      },
     ],
   },
 };
