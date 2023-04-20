@@ -1,34 +1,37 @@
 import React from 'react'
 import Search from './Search'
-import { store, useAppDispatch, useAppSelector, wrapper } from '@/store/store'
-import { ProductProp, User } from '@/types'
-import { useEffect } from 'react';
-import { GetServerSideProps } from 'next';
-import { fetchUsers } from '@/store/userSlice';
-import { configureStore } from '@reduxjs/toolkit';
+import { Product, User } from '@/types'
+import { useAppDispatch } from '@/store/store'
+import { removeUser } from '../store/userSlice';
+import { useRouter } from 'next/router';
+import { removeProduct } from '@/store/productAdminSlice';
 
-export const getServerSideProps: GetServerSideProps = wrapper.getServerSideProps(store => async (context) => {
-  //  await store?.dispatch(fetchUsers());
-  //  const data=await store.getState();
-  // return {
-  //   props: {
-  //     users: data
-  //   },
-  // }
+const Content = ({ users, products }:{users:User[],products:Product[]}) => {
 
-  // console.log(context)
-  // store.dispatch(fetchUsers()); 
-  // const users = store.getState(); 
-  // return { props: { users } };
-}
-)
-const Content = () => {
-  //fetch product data
   const dispatch = useAppDispatch()
-  const users=useAppSelector(state=>state.user.users)
-  useEffect(() => {
-    dispatch(fetchUsers())
-  }, [dispatch])
+
+  const handleRemoveUser = (id: string) => {
+    console.log(id);
+    dispatch(removeUser(id))
+  }
+  const router = useRouter()
+  const handleEditUser = (user: User) => {
+    router.push({
+      pathname: "/Login/Admin/AddNew",
+      query: { user: JSON.stringify(user) }
+    })
+  }
+  // ----------------PRODUCT--------------------
+  const handleRemoveProduct = (id: string) => {
+    console.log(id);
+    dispatch(removeProduct(id))
+  }
+  const handleEditProduct = (product: Product) => {
+    router.push({
+      pathname: "/Login/Admin/AddNew",
+      query: { product: JSON.stringify(product) }
+    })
+  }
   return (
     <section className="admin__wrapper">
       <Search />
@@ -89,9 +92,7 @@ const Content = () => {
                   <th>#</th>
                   <th>Username</th>
                   <th>Email</th>
-                  <th>Street</th>
-                  <th>City</th>
-                  <th>Phone</th>
+                  <th>Avatar</th>
                   <th>Action</th>
                 </tr>
                 {users?.map((user: User) => {
@@ -100,17 +101,14 @@ const Content = () => {
                       <td>{String(user.id)}</td>
                       <td>{String(user.username)}</td>
                       <td>{String(user.email)}</td>
-                      <td>{String(user.address.street)}</td>
-                      <td>{String(user.address.city)}</td>
-                      <td>{String(user.phone)}</td>
+                      <td>{String(user.avatar)}</td>
                       <td>
-                        <button>Remove |</button>
-                        <button>Edit</button>
+                        <button onClick={() => handleRemoveUser(user.id.toString())} className='btn__remove'>Remove</button>
+                        <button onClick={() => handleEditUser(user)} className='btn__edit'>Edit</button>
                       </td>
                     </tr>
                   )
                 })}
-
               </table>
             </div>
           </div>
@@ -127,23 +125,25 @@ const Content = () => {
                   <th>#</th>
                   <th>Title</th>
                   <th>Price</th>
-                  <th>Category</th>
                   <th>Description</th>
                   <th>Image</th>
                   <th>Action</th>
                 </tr>
-                <tr className='tbl__content'>
-                  <td>1</td>
-                  <td>Test product</td>
-                  <td>150</td>
-                  <td>Electronic</td>
-                  <td>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem!</td>
-                  <td>https://i.pravatar.cc</td>
-                  <td>
-                    <button>Remove |</button>
-                    <button>Edit</button>
-                  </td>
-                </tr>
+                {products?.map((product: Product) => {
+                  return (
+                    <tr className='tbl__content' key={String(product.id)}>
+                      <td>{product.id}</td>
+                      <td>{product.title}</td>
+                      <td>{String(product.price)}</td>
+                      <td>{product.desc}</td>
+                      <td>{product.image}</td>
+                      <td>
+                        <button className='btn__remove' onClick={() => handleRemoveProduct(product.id.toString())}>Remove</button>
+                        <button className='btn__edit' onClick={() => handleEditProduct(product)}>Edit</button>
+                      </td>
+                    </tr>
+                  )
+                })}
               </table>
             </div>
           </div>
@@ -153,4 +153,4 @@ const Content = () => {
   )
 }
 
-export default Content
+export default Content;

@@ -8,24 +8,24 @@ const SideBar = () => {
     <section className="sidebar">
       <div className="sidebar__brand">
         <Image src="https://designrevision.com/demo/shards-dashboard-lite-react/static/media/shards-dashboards-logo.60a85991.svg" alt="" width={30} height={30} />
-       <span> Admin</span>
+        <span> Admin</span>
       </div>
       <hr />
       <ul className="sidebar__menu">
         <li>
-          <Link href="/Login/Admin/Admin"><FaPen />Admin Dashboard</Link>
+          <Link href="/Login/Admin"><FaPen />Admin Dashboard</Link>
         </li>
         <li>
-          <a href=""><FaUser />Users</a>
+          <Link href="/Login/Admin"><FaUser />Users</Link>
         </li>
         <li>
-          <a href=""><FaProductHunt />Products</a>
+          <Link href=""><FaProductHunt />Products</Link>
         </li>
         <li>
           <Link href="/Login/Admin/AddNew"><FaPlusSquare />Add New</Link>
         </li>
         <li>
-          <a href=""><FaEdit />User Profile</a>
+          <Link href=""><FaEdit />User Profile</Link>
         </li>
         <li>
           <Link href="/404"><FaInfo />Errors</Link>

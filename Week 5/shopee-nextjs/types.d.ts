@@ -1,4 +1,4 @@
-export type ProductProp = {
+export type Product = {
   desc: String;
   id: String;
   image: String;
@@ -16,7 +16,7 @@ export type Order = {
   dateOrder: string;
   id: String;
 }
-export interface User {
+export type User= {
   id: String;
   email: String;
   username: String;
@@ -25,5 +25,7 @@ export interface User {
     street:String;
     city:String;
   };
-  phone: Number;
+  phone: String;
+  avatar:String;
+  AdminType:boolean;
 }

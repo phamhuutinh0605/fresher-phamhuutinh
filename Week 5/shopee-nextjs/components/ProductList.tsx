@@ -1,10 +1,8 @@
 import { useState, useEffect } from 'react';
 import Product from "./Product";
-import { useAppDispatch, useAppSelector } from '../store/store';
+import { useAppDispatch } from '../store/store';
 import { fetchToProductList } from '../store/productSlice';
 const ProductList = () => {
-
-  const products = useAppSelector((state) => state.product.filterProduct);
 
   const [productList, setProductList] = useState([]);
   const dispatch = useAppDispatch();

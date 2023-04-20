@@ -16,11 +16,6 @@
 }
 
 * {
-  /* color: rgb(var(--foreground-rgb));
-  background: linear-gradient(to bottom, transparent, rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb)); */
-  /* background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center; */
   font-family: 'Roboto',sans-serif;
   margin: 0px;
   padding: 0px;
