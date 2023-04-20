@@ -1,3 +1,4 @@
+import { User } from '@/types';
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react'
@@ -8,7 +9,7 @@ const SideBar = () => {
     <section className="sidebar">
       <div className="sidebar__brand">
         <Image src="https://designrevision.com/demo/shards-dashboard-lite-react/static/media/shards-dashboards-logo.60a85991.svg" alt="" width={30} height={30} />
-        <span> Admin</span>
+        <Link href="/"> Admin</Link>
       </div>
       <hr />
       <ul className="sidebar__menu">

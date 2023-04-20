@@ -6,6 +6,8 @@ import { wrapper } from '@/store/store';
 import { fetchUsers } from '@/store/userSlice';
 import { fetchProducts } from '@/store/productAdminSlice';
 import { Product, User } from '@/types';
+import { useRouter } from 'next/router';
+import { useEffect } from 'react';
 
 export const getServerSideProps: GetServerSideProps = wrapper.getServerSideProps(store => async () => {
   await store.dispatch(fetchUsers());
@@ -27,7 +29,7 @@ export const getServerSideProps: GetServerSideProps = wrapper.getServerSideProps
 const Admin = ({ users, products }: { users: User[], products: Product[] }) => {
   return (
     <>
-      <SideBar />
+      <SideBar  />
       <Content users={users} products={products} />
     </>
   )

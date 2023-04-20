@@ -152,7 +152,7 @@ const AddNew = () => {
   }
   return (
     <>
-      <SideBar />
+      <SideBar/>
       <section className="admin__wrapper">
         <Search />
         <section className='admin__content'>

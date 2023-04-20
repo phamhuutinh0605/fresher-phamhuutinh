@@ -3,6 +3,7 @@ import Footer from "../../components/Footer";
 import { useState, useEffect, MouseEvent } from 'react';
 import { useRouter } from "next/router";
 import Link from "next/link";
+import { User } from "@/types";
 
 const Login = () => {
 
@@ -13,7 +14,7 @@ const Login = () => {
       .then((response) => response.json())
       .then((data) => setUsers(data));
   }, [])
-
+console.log(users)
   // handle username and password
   const handleUserName = (e:React.ChangeEvent<HTMLInputElement>) => {
     setUserName(e.target.value)
@@ -24,15 +25,15 @@ const Login = () => {
   const [username, setUserName] = useState("");
   const [password, setPassword] = useState("");
   const router = useRouter();
-  const handleLogin = (e: MouseEvent<HTMLButtonElement, MouseEvent>) => {
+  const handleLogin = (e: MouseEvent<HTMLButtonElement, globalThis.MouseEvent>) => {
     e.preventDefault();
-    users.map((user: any) => {
+    users.map((user: User) => {
       if (user.username === username && user.password === password) {
         if (user.AdminType) {
           router.push({
             pathname: "/Login/Admin", query: { users:JSON.stringify(user) }
           })
-          console.log("order-user", users)
+          console.log("order-user", user)
         } else {
           router.push({
             pathname: "/", query: { users:JSON.stringify(user) }
@@ -83,7 +84,7 @@ const Login = () => {
                     <div className="register__password">
                       <input type="password" onChange={handlePassword} placeholder="Mật khẩu" />
                     </div>
-                    <button className="search__button register__btn" onClick={()=>handleLogin}>
+                    <button className="search__button register__btn" onClick={handleLogin}>
                       ĐĂNG NHẬP
                     </button>
                   </form>
