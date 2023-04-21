@@ -1,0 +1,8 @@
+.btn__add{
+  color: white;
+  background-color: blue;
+  margin-left: 10px;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+}
