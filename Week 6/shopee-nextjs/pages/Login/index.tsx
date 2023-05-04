@@ -1,9 +1,10 @@
-import Logo from "../../components/Logo";
-import Footer from "../../components/Footer";
+
 import { useState, useEffect, MouseEvent } from 'react';
 import { useRouter } from "next/router";
 import Link from "next/link";
 import { User } from "@/types";
+import Logo from '@/components/Organisms/Logo';
+import Footer from '@/components/Organisms/Footer';
 
 const Login = () => {
 

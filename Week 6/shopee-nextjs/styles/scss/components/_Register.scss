@@ -33,13 +33,13 @@
     align-items: center;
   }
   .register__logo {
-    .register__logo{
-      a{
+    .register__logo {
+      a {
         text-decoration: none;
-        svg{
-         g{
-          fill: #f7472e;
-         }
+        svg {
+          g {
+            fill: #f7472e;
+          }
         }
       }
     }
@@ -51,6 +51,9 @@
     h4 {
       color: #000;
       margin: 10px 0 0 10px;
+      font-family: "Roboto", sans-serif;
+      font-weight: 600;
+      font-size: 25px;
     }
   }
   .register__content {
@@ -78,6 +81,9 @@
       }
       .register__form {
         h4 {
+          font-family: "Roboto", sans-serif;
+          font-weight: 500;
+          font-size: 20px;
           margin-bottom: 35px;
         }
       }
@@ -87,8 +93,9 @@
       .register__password {
         input {
           padding: 5px;
-          width: 97%;
+          width: 100%;
           outline: none;
+          border-bottom: 1px solid rgba(0, 0, 0, 0.248);
         }
       }
       .register__name,
@@ -98,7 +105,8 @@
         margin-bottom: 20px;
       }
       .register__btn {
-        padding: 8px 10px;
+        margin: 10px 3px;
+        padding: 8px 15px;
         width: 100%;
         background-color: #f7472e;
         border: none;

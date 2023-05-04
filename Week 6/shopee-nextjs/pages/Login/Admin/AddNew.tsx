@@ -1,12 +1,13 @@
-import Option from '@/components/Option'
-import Search from '@/components/Search'
-import SideBar from '@/components/SideBar'
+
 import { Product, User } from '@/types'
 import React, { useEffect, useState } from 'react'
 import { useAppDispatch } from '../../../store/store';
 import { addUser, editUser } from '../../../store/userSlice';
 import { useRouter } from 'next/router'
-import { editProduct } from '@/store/productAdminSlice'
+import { addProduct, editProduct } from '@/store/productAdminSlice'
+import SideBar from '@/components/Organisms/SideBar';
+import Search from '@/components/Organisms/Search';
+import Option from '@/components/Organisms/Option';
 const initialUserState: User = {
   id: "",
   email: "",
@@ -19,6 +20,9 @@ const initialUserState: User = {
   phone: "",
   avatar: "",
   AdminType: false || true,
+  desc: "",
+  rating: 0,
+  date: "",
 }
 const initialProductState: Product = {
   desc: "",
@@ -78,6 +82,9 @@ const AddNew = () => {
     const dataUser = formUserData;
     console.log(formUserData)
     dispatch(addUser(dataUser))
+    router.push({
+      pathname:"/Login/Admin"
+    })
   }
   const router = useRouter();
   const { user } = router?.query;
@@ -97,6 +104,16 @@ const AddNew = () => {
   }
 
   // ------------------HANDLE PRODUCT---------------------
+   const handleAddProduct = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    // const dataUser = { ...formData, id: new Date().getTime().toString() }
+    const dataProduct = formProductData;
+    console.log(formUserData)
+    dispatch(addProduct(dataProduct))
+    router.push({
+      pathname:"/Login/Admin"
+    })
+  }
 
   const handleChangeTitle = (event: React.ChangeEvent<HTMLInputElement>) => {
     event.preventDefault()
@@ -190,7 +207,7 @@ const AddNew = () => {
                       )}
                     </form>
                   ) : (
-                    <form className="form">
+                    <form className="form" onSubmit={handleAddProduct}>
                       <h3>New Product</h3>
                       <div className="group">
                         <input placeholder="‎" type="text" required onChange={handleChangeTitle} value={String(formProductData.title)} />

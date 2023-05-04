@@ -1,10 +1,10 @@
-import Carousel from '@/components/Carousel'
-import Footer from '@/components/Footer'
-import Header from '@/components/Header'
-import ProductList from '@/components/ProductList'
+import Carousel from '@/components/Organisms/Carousel'
 import { Provider } from 'react-redux';
 import { store } from '../store/store';
 import React from 'react'
+import Header from '@/components/Organisms/Header';
+import ProductList from '@/components/Organisms/ProductList';
+import Footer from '@/components/Organisms/Footer';
 const Home = () => {
   return (
     <Provider store={store}>

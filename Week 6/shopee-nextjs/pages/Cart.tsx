@@ -1,8 +1,8 @@
-import Footer from "../components/Footer";
-import Logo from "../components/Logo";
 import { useAppSelector, useAppDispatch } from '../store/store';
 import { changeQuantity, removeFromCart } from "../store/productSlice";
 import { useRouter } from "next/router";
+import Logo from '@/components/Organisms/Logo';
+import Footer from '@/components/Organisms/Footer';
 const Cart = () => {
 
   const router = useRouter()

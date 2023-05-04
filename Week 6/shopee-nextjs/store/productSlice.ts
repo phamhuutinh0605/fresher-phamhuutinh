@@ -44,7 +44,7 @@ export const ProductSlice = createSlice({
       products: state.products.filter((product) =>
         product.id === action.payload.id
           ? (product.quantity = Number(action.payload.quantity) )
-          : product.quantity
+          : Number(product.quantity)
       )
     },
     removeFromCart: (state, action: PayloadAction<{ id: String | undefined }>) => {

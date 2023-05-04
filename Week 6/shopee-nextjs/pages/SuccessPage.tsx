@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import Footer from "../components/Footer";
-import Logo from "../components/Logo";
 import { useRouter } from "next/router";
+import Logo from "@/components/Organisms/Logo";
+import Footer from "@/components/Organisms/Footer";
 
 type Order = {
   title: string[];

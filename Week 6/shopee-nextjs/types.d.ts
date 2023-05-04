@@ -4,7 +4,7 @@ export type Product = {
   image: String;
   price: Number;
   title: String;
-  quantity:Number;
+  quantity: Number;
 }
 export type Order = {
   title: string[];
@@ -16,16 +16,28 @@ export type Order = {
   dateOrder: string;
   id: String;
 }
-export type User= {
+export type User = {
   id: String;
   email: String;
   username: String;
   password: String;
   address: {
-    street:String;
-    city:String;
+    street: String;
+    city: String;
   };
   phone: String;
+  avatar: String;
+  AdminType: boolean;
+  desc: String;
+  rating: number;
+  date: String;
+}
+type Post = {
   avatar:String;
-  AdminType:boolean;
+  date:String;
+  desc:String;
+  id:String;
+  idProduct:String[];
+  rating:Number;
+  username:String;
 }

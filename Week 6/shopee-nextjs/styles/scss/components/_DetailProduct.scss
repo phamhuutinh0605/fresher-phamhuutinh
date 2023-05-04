@@ -107,9 +107,9 @@
       padding: 20px;
       .review__item {
         display: flex;
+        justify-content: flex-start;
         .avatar {
           img {
-            width: 100%;
             width: 50px;
           }
         }

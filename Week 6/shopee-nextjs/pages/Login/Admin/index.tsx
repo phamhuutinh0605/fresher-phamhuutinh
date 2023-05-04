@@ -1,6 +1,5 @@
 import React from 'react'
-import SideBar from '@/components/SideBar';
-import Content from '@/components/Content';
+import Content from '@/components/Organisms/Content';
 import { GetServerSideProps } from 'next';
 import { wrapper } from '@/store/store';
 import { fetchUsers } from '@/store/userSlice';
@@ -8,6 +7,7 @@ import { fetchProducts } from '@/store/productAdminSlice';
 import { Product, User } from '@/types';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
+import SideBar from '@/components/Organisms/SideBar';
 
 export const getServerSideProps: GetServerSideProps = wrapper.getServerSideProps(store => async () => {
   await store.dispatch(fetchUsers());

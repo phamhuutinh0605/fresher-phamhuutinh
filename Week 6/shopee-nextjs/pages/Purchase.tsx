@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
-import Footer from "../components/Footer";
-import Logo from "../components/Logo";
+
 import { useRouter } from "next/router";
 import { FaLocationArrow } from "react-icons/fa";
-import { Order, ProductProp } from "@/types";
 import { v4 as uuidv4 } from 'uuid';
+import Logo from "@/components/Organisms/Logo";
+import Footer from "@/components/Organisms/Footer";
 
 type Product = {
   desc: string[];
