@@ -15,7 +15,7 @@ const Order = lazy(() => import("./pages/Order"))
 
 function App() {
   return (
-    <Suspense>
+    <Suspense fallback={<p>Loading...</p>}>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />

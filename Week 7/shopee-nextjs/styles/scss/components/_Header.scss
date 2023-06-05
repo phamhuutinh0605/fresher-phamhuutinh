@@ -1,0 +1,33 @@
+/* -------------------------HEADER-------------------------------- */
+.header {
+  background-color: #f7472e;
+  padding-top: 10px;
+  &__wrapper {
+    display: flex;
+    justify-content: space-between;
+    height: 50px;
+    color: white;
+    &__connection {
+      span {
+        margin-left: 10px;
+      }
+    }
+    &__login {
+      a {
+        color: white;
+        text-decoration: none;
+        cursor: pointer;
+        transition: 0.2s ease-in;
+        &:hover {
+          color: white;
+          opacity: 0.5;
+          text-decoration: none;
+        }
+      }
+      &__signup,
+      &__signin {
+        padding: 10px;
+      }
+    }
+  }
+}
