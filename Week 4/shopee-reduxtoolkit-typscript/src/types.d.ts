@@ -4,4 +4,5 @@ export type ProductState = {
   price: Number,
   desc: String | undefined,
   image: String
+  quantity:Number;
 }

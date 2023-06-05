@@ -30,7 +30,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "cypress": "cypress open"
   },
   "eslintConfig": {
     "extends": [
@@ -82,7 +83,7 @@
     "@types/react-dom": "^18.0.11",
     "babel-jest": "^29.5.0",
     "babel-plugin-named-exports-order": "^0.0.2",
-    "cypress": "^12.9.0",
+    "cypress": "^12.10.0",
     "jest": "^27.5.1",
     "jest-environment-jsdom": "^29.5.0",
     "prop-types": "^15.8.1",

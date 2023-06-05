@@ -4,8 +4,6 @@ import { useAppDispatch, useAppSelector } from '../store/store';
 import { fetchToProductList } from 'store/productSlice';
 const ProductList = () => {
 
-  const products = useAppSelector((state) => state.product.filterProduct);
-
   const [productList, setProductList] = useState([]);
   const dispatch = useAppDispatch();
   useEffect(() => {
@@ -19,13 +17,14 @@ const ProductList = () => {
   return (
     <div className="productList">
       <div className="shopee__container">
-        <div className="product__content">
-          {productList.map((product: any) => {
-            return (
-              <Product key={String(product.id)} id={product.id} title={product.title} price={product.price} desc={product.desc} image={product.image} />
-            );
-          })}
-        </div>
+        {productList.length < 1 ? <p>Loading...</p> :
+          <div className="product__content">
+            {productList.map((product: any) => {
+              return (
+                <Product key={String(product.id)} id={product.id} title={product.title} price={product.price} desc={product.desc} image={product.image} />
+              );
+            })}
+          </div>}
       </div>
     </div>
   );

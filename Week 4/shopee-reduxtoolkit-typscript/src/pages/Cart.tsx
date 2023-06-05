@@ -3,7 +3,7 @@ import Footer from "../components/Footer";
 import Logo from "../components/Logo";
 import { useAppSelector, useAppDispatch } from '../store/store';
 import { changeQuantity, removeFromCart } from "../store/productSlice";
-import { ChangeEvent } from 'react';
+import { ChangeEvent, useState, useEffect } from 'react';
 const Cart = () => {
 
   const navigate = useNavigate();
@@ -11,9 +11,15 @@ const Cart = () => {
   const handlePurchase = () => {
     navigate("/purchase", { state: { products } });
   };
-  
+  // total
+  const [total, setTotal] = useState();
+  useEffect(() => {
+    setTotal(
+      products?.reduce((acc: any, curr: any) => acc + Number(curr.price) * curr.quantity, 0)
+    );
+  }, [products]);
   const dispatch = useAppDispatch();
-  const handleChangeQuantity = (id: String, e:ChangeEvent<HTMLInputElement>) => {
+  const handleChangeQuantity = (id: String, e: ChangeEvent<HTMLInputElement>) => {
     dispatch(changeQuantity({
       id: String(id), quantity: parseInt(e.target.value)
     }))
@@ -38,6 +44,7 @@ const Cart = () => {
               <div className="content__title">
                 <span>Tên sản phẩm</span>
                 <span>Đơn giá</span>
+                <span>Hình ảnh</span>
                 <span>Số lượng</span>
                 <span>Thành tiền</span>
                 <span>Thao tác</span>
@@ -46,6 +53,7 @@ const Cart = () => {
                 <div className="content__text" key={String(product.id)}>
                   <span className="text__title">{product.title} Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam praesentium dignissimos repellendus est ullam fugiat excepturi animi quibusdam eum dolore.</span>
                   <span>{String(product.price)}</span>
+                  <img src={String(product.image)} alt="" width={100}/>
                   <input
                     min={1}
                     type="number"
@@ -53,19 +61,24 @@ const Cart = () => {
                     onChange={(e) => handleChangeQuantity(String(product.id), e)}
                   />
                   <span>{Number(product.quantity) * Number(product.price)}</span>
+
                   <button
                     className="btn_delete"
                     onClick={() => handleRemoveCart(String(product.id))}
                   >
                     Xóa
                   </button>
+
                 </div>
               ))}
-              <button className="content__btn"
-                onClick={handlePurchase}
-              >
-                Mua Hàng
-              </button>
+              <div className="btn__total" style={{display:"flex", justifyContent:"space-between",marginRight:"260px"}}>
+                <button className="content__btn"
+                  onClick={handlePurchase}
+                >
+                  Mua Hàng
+                </button>
+                <h3>{total}</h3>
+              </div>
             </div>
           </div>
         ) : (

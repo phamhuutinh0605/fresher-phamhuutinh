@@ -1,0 +1,112 @@
+/* ---------------------------------REGISTER--------------------------------------- */
+.register {
+  width: 100%;
+  background-color: white;
+  &__wrapper {
+    &__logo {
+      .register__bg {
+        background-color: white;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: white;
+        padding: 20px;
+      }
+      .register__support {
+        a {
+          text-decoration: none;
+          cursor: pointer;
+          color: #f7472e;
+          &:hover {
+            text-decoration: none;
+            color: #f7472e;
+          }
+        }
+      }
+      .register__logo {
+        fill: #f7472e;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        h4 {
+          color: #000;
+          margin: 10px 0 0 10px;
+          font-family: "Roboto", sans-serif;
+          font-weight: 600;
+          font-size: 25px;
+        }
+        a {
+          text-decoration: none;
+          svg {
+            width: 150px;
+            g {
+              fill: #f7472e;
+            }
+          }
+        }
+      }
+    }
+    &__content {
+      background-color: #f7472e;
+      &__body {
+        padding: 80px;
+        display: flex;
+        justify-content: space-between;
+        &__left {
+          margin-top: 40px;
+          svg {
+            width: 100%;
+            fill: white;
+          }
+          &__text {
+            h4 {
+              color: white;
+              margin-top: 40px;
+              text-align: center;
+            }
+          }
+        }
+        &__right {
+          &__form {
+            background-color: white;
+            padding: 40px;
+            width: 450px;
+            border-radius: 5px;
+            h4 {
+              font-family: "Roboto", sans-serif;
+              font-weight: 500;
+              font-size: 20px;
+              margin-bottom: 35px;
+            }
+            &__name,
+            &__email,
+            &__phone,
+            &__password {
+              input {
+                padding: 5px;
+                width: 100%;
+                outline: none;
+                border-bottom: 1px solid rgba(0, 0, 0, 0.248);
+              }
+            }
+            &__name,
+            &__email,
+            &__phone,
+            &__password {
+              margin-bottom: 20px;
+            }
+            &__btn {
+              margin: 10px 3px;
+              padding: 8px 15px;
+              width: 100%;
+              background-color: #f7472e;
+              border: none;
+              color: white;
+              cursor: pointer;
+            }
+          }
+        }
+      }
+    }
+  }
+}

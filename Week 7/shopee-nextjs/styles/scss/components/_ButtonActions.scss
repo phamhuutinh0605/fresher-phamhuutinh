@@ -1,0 +1,34 @@
+.product__action {
+  padding: 0 20px 10px 10px;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 5px;
+  .card__action {
+    button {
+      margin-right: 5px;
+      cursor: pointer;
+      transition: 0.4s linear;
+      &:hover {
+        background-color: #f7472e;
+        color: white;
+      }
+    }
+  }
+  .btn__outline {
+    background-color: white;
+    color: #f7472e;
+    border: 1px solid #f7472e;
+    cursor: pointer;
+  }
+  button {
+    padding: 8px 8px;
+    background-color: #f7472e;
+    color: white;
+    border: none;
+    font-size: 12px;
+  }
+  a {
+    text-decoration: none;
+    color: white;
+  }
+}

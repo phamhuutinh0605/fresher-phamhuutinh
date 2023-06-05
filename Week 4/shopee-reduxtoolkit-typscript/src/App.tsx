@@ -12,7 +12,6 @@ const SuccessPage = lazy(() => import("./pages/SuccessPage"))
 const Login = lazy(() => import("./pages/Login"))
 const Register = lazy(() => import("./pages/Register"))
 const Order = lazy(() => import("./pages/Order"))
-
 const Admin = lazy(() => import("./pages/Admin"))
 
 

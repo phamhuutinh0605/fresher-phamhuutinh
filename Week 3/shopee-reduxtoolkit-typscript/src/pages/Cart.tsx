@@ -3,7 +3,7 @@ import Footer from "../components/Footer";
 import Logo from "../components/Logo";
 import { useAppSelector, useAppDispatch } from "../store/store";
 import { changeQuantity, removeFromCart } from "../store/productSlice";
-import { ChangeEvent, useRef, useState, useEffect } from 'react';
+import { ChangeEvent, useRef, useState, useEffect, useMemo } from 'react';
 
 type IProductProps = {
   id: String,
@@ -21,7 +21,11 @@ const Cart = () => {
     event.preventDefault();
     navigate("/purchase", { state: { products } });
   };
-
+  const totalPrice = useMemo(() => {
+    return products.reduce((acc: any, curr: any) => {
+      return Number(acc) + Number(curr.price) * Number(curr.quantity);
+    }, 0);
+  }, [products]);
   const quantityRef = useRef<HTMLInputElement>(null);
   const idRef = useRef<HTMLInputElement>(null);
   const dispatch = useAppDispatch();
@@ -95,6 +99,7 @@ const Cart = () => {
               <button className="content__btn" onClick={handlePurchase}>
                 Mua Hàng
               </button>
+            <h3>{totalPrice}</h3>
             </div>
           </div>
         ) : (

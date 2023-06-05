@@ -23,22 +23,23 @@ const Purchase = () => {
       products?.reduce((acc: any, curr: any) => acc + Number(curr.price) * curr.quantity, 0)
     );
   }, [products]);
-
+console.log(products)
   //link to success form
   const navigate = useNavigate();
   const paymentOrder = async () => {
     //post order
     const date = new Date();
     const data = {
-      title: products.map((product: ProductProp) => {
-        return product.title;
-      }),
-      price: products.map((product: ProductProp) => {
-        return product.price;
-      }),
-      amount: products.map((product: ProductProp) => {
-        return product.quantity;
-      }),
+      // title: products.map((product: ProductProp) => {
+      //   return product.title;
+      // }),
+      // price: products.map((product: ProductProp) => {
+      //   return product.price;
+      // }),
+      // amount: products.map((product: ProductProp) => {
+      //   return product.quantity;
+      // }),
+      products:products,
       total: total,
       address: "20 nguyễn khoái, quận 4",
       phone: "0977965165",

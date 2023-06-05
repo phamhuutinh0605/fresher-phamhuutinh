@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React from "react";
 import { CartState } from "../context/Context";
 import { useNavigate } from "react-router-dom";
 import Footer from "./Footer";
@@ -53,7 +53,7 @@ const Cart = () => {
                   <input
                     min={1}
                     type="number"
-                    value={product.quantity}
+                    value={product.quantity|1}
                     onChange={(e) => handleChangeQuantity(e, product)}
                   />
                   <span>{"" + product.quantity * product.price}</span>
